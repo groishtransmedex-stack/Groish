@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { useLocation } from 'react-router-dom';
+// Git testing
 
 /**
  * Reusable, responsive Google AdSense ad component for HGROISH.
