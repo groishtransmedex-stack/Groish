@@ -1,6 +1,9 @@
-import React from 'react';
+
+
+// export default ClientsPage;
+import React, { useRef, useState } from 'react';
 import { Helmet } from 'react-helmet';
-import { motion } from 'framer-motion';
+import { motion, useInView, useMotionValueEvent, useScroll } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import {
   Building2,
@@ -23,6 +26,47 @@ import {
   ChevronRight
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+
+
+// Replays whenever the section enters the viewport, moving with scroll direction.
+const Reveal = ({ children, className = '', delay = 0 }) => {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: false, amount: 0.12 });
+  const { scrollY } = useScroll();
+  const [scrollDirection, setScrollDirection] = useState('down');
+
+  useMotionValueEvent(scrollY, 'change', (latest) => {
+    const previous = scrollY.getPrevious();
+    if (previous !== undefined && latest !== previous) {
+      setScrollDirection(latest > previous ? 'down' : 'up');
+    }
+  });
+
+  return (
+    <motion.div
+      ref={ref}
+      className={className}
+      initial={false}
+      animate={
+        isInView
+          ? { opacity: 1, y: 0, scale: 1, filter: 'blur(0px)' }
+          : {
+              opacity: 0,
+              y: scrollDirection === 'down' ? 72 : -72,
+              scale: 0.94,
+              filter: 'blur(8px)',
+            }
+      }
+      transition={{
+        duration: 0.82,
+        delay,
+        ease: [0.22, 1, 0.36, 1],
+      }}
+    >
+      {children}
+    </motion.div>
+  );
+};
 
 const clientSectors = [
   {
@@ -72,7 +116,7 @@ const clientValues = [
 
 const ClientsPage = () => {
   return (
-    <div className="groish-page-shell bg-slate-950 text-slate-100 pt-20">
+    <div className="groish-page-shell min-h-screen overflow-x-hidden bg-slate-950 pt-20 font-['Manrope'] text-slate-100">
       <Helmet>
         <title>Our Clients & Case Studies | Groish</title>
         <meta
@@ -87,38 +131,41 @@ const ClientsPage = () => {
       </Helmet>
 
       {/* Hero Header */}
-      <section className="relative isolate overflow-hidden border-b border-slate-800/80 bg-[radial-gradient(ellipse_at_top,rgba(56,189,248,0.15),transparent_65%)] py-16 sm:py-24">
-        <div className="container relative mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="max-w-4xl"
-          >
-            <div className="flex items-center gap-2 text-cyan-400 text-xs font-bold uppercase tracking-[0.24em]">
-              <Sparkles className="h-4 w-4" />
-              <span>Client Partnerships & Impact</span>
-            </div>
+      <Reveal>
+     <section className="relative isolate overflow-hidden border-b border-slate-800/80 bg-[radial-gradient(ellipse_at_top,rgba(56,189,248,0.15),transparent_65%)] py-16 sm:py-24">
+  <div className="container relative mx-auto px-4 sm:px-6 lg:px-8">
+    <motion.div
+      initial={{ opacity: 0, y: 48, scale: 0.96, filter: 'blur(8px)' }}
+      animate={{ opacity: 1, y: 0, scale: 1, filter: 'blur(0px)' }}
+      transition={{ duration: 0.95, ease: [0.22, 1, 0.36, 1] }}
+      className="mx-auto max-w-4xl text-center"
+    >
+      <div className="flex flex-wrap items-center justify-center gap-2 text-xs font-bold uppercase tracking-[0.2em] text-cyan-400">
+        <Sparkles className="h-4 w-4" />
+        <span>Client Partnerships & Impact</span>
+      </div>
 
-            <h1 className="mt-5 text-4xl font-black tracking-[-0.06em] text-white sm:text-6xl lg:text-7xl leading-[1.02]">
-              Building Breakthrough Momentum for{' '}
-              <span className="bg-gradient-to-r from-cyan-300 via-sky-300 to-blue-400 bg-clip-text text-transparent">
-                Market Leaders
-              </span>
-            </h1>
+      <h1 className="mt-5 text-3xl font-extrabold leading-[1.08] tracking-[-0.045em] text-white sm:text-5xl md:text-6xl lg:text-7xl">
+        Building Breakthrough Momentum for{' '}
+        <span className="bg-gradient-to-r from-cyan-300 via-sky-300 to-blue-400 bg-clip-text text-transparent">
+          Market Leaders
+        </span>
+      </h1>
 
-            <p className="mt-6 text-lg leading-relaxed text-slate-300 sm:text-xl max-w-3xl">
-              From large-scale retail supermarket networks expanding across cities to global technology and healthcare operators, GROISH powers high-stakes growth through unified IT, marketing, and media execution.
-            </p>
-          </motion.div>
-        </div>
-      </section>
+      <p className="mx-auto mt-6 max-w-3xl text-base leading-7 text-slate-300 sm:text-lg sm:leading-8 lg:text-xl">
+        From large-scale retail supermarket networks expanding across cities to global technology and healthcare operators, GROISH powers high-stakes growth through unified IT, marketing, and media execution.
+      </p>
+    </motion.div>
+  </div>
+</section>
+      </Reveal>
 
       {/* Main Content Area */}
       <main className="container mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24">
         {/* ==========================================
             FEATURED FLAGSHIP CLIENT SPOTLIGHT: KK MART
         ========================================== */}
+        <Reveal>
         <section className="relative">
           <div className="flex items-center justify-between gap-4 border-b border-slate-800 pb-4">
             <div>
@@ -139,10 +186,10 @@ const ClientsPage = () => {
           </div>
 
           <motion.div
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.65 }}
+            initial={{ opacity: 0, y: 55, scale: 0.96 }}
+            whileInView={{ opacity: 1, y: 0, scale: 1 }}
+            viewport={{ once: false, amount: 0.12 }}
+            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
             className="mt-8 overflow-hidden rounded-3xl border border-slate-800 bg-gradient-to-b from-slate-900 via-slate-900 to-slate-950 p-6 sm:p-10 lg:p-12 shadow-2xl relative"
           >
             <div className="absolute right-0 top-0 h-96 w-96 rounded-full bg-cyan-500/10 blur-3xl pointer-events-none" />
@@ -210,7 +257,7 @@ const ClientsPage = () => {
                     asChild
                     variant="outline"
                     size="lg"
-                    className="rounded-full border-slate-700 bg-slate-900 px-6 py-6 text-sm font-semibold text-slate-200 hover:bg-slate-800 hover:text-white"
+                    className="w-full rounded-full border-slate-700 bg-slate-900 px-5 py-6 text-sm font-semibold sm:w-auto sm:px-6 text-slate-200 hover:bg-slate-800 hover:text-white"
                   >
                     <Link to="/clients/kk-mart#campaign-gallery">
                       <span>Explore Media Gallery</span>
@@ -225,7 +272,7 @@ const ClientsPage = () => {
                   <img
                     src="/Client-images/kkmart-photo-01.jpg"
                     alt="KK Mart High-Q Mall Facade Wrap by Groish"
-                    className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-108"
+                    className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/30 to-transparent" />
                   <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between">
@@ -277,10 +324,12 @@ const ClientsPage = () => {
             </div>
           </motion.div>
         </section>
+        </Reveal>
 
         {/* ==========================================
             INDUSTRIES & SECTORS WE SERVE
         ========================================== */}
+        <Reveal>
         <section className="mt-24 sm:mt-32">
           <div className="max-w-2xl">
             <span className="text-xs font-bold uppercase tracking-[0.24em] text-cyan-300">
@@ -295,10 +344,19 @@ const ClientsPage = () => {
           </div>
 
           <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {clientSectors.map((sector) => (
-              <div
+            {clientSectors.map((sector, index) => (
+              <motion.div
                 key={sector.title}
-                className="flex flex-col justify-between rounded-2xl border border-slate-800 bg-slate-900/60 p-6 backdrop-blur transition-all duration-300 hover:border-slate-700 hover:bg-slate-900"
+                initial={{ opacity: 0, y: 55, scale: 0.9, rotateX: 8 }}
+                whileInView={{ opacity: 1, y: 0, scale: 1, rotateX: 0 }}
+                viewport={{ once: false, amount: 0.12 }}
+                transition={{
+                  duration: 0.72,
+                  delay: index * 0.12,
+                  ease: [0.22, 1, 0.36, 1],
+                }}
+                whileHover={{ y: -6 }}
+                className="flex h-full flex-col justify-between rounded-2xl border border-slate-800 bg-slate-900/60 p-5 backdrop-blur transition-colors duration-300 hover:border-cyan-500/40 hover:bg-slate-900 sm:p-6"
               >
                 <div>
                   <span className="rounded-full bg-slate-800 px-3 py-1 text-[0.7rem] font-bold text-cyan-300">
@@ -312,14 +370,16 @@ const ClientsPage = () => {
                   <span>Groish Capability</span>
                   <CheckCircle2 className="h-3.5 w-3.5" />
                 </div>
-              </div>
+              </motion.div>
             ))}
           </div>
         </section>
+        </Reveal>
 
         {/* ==========================================
             WHY ENTERPRISE CLIENTS TRUST GROISH
         ========================================== */}
+        <Reveal>
         <section className="mt-24 sm:mt-32 rounded-3xl border border-slate-800 bg-gradient-to-b from-slate-900/90 to-slate-950 p-8 sm:p-14">
           <div className="max-w-3xl">
             <span className="text-xs font-bold uppercase tracking-[0.24em] text-cyan-300">
@@ -334,27 +394,38 @@ const ClientsPage = () => {
           </div>
 
           <div className="mt-10 grid gap-6 sm:grid-cols-2">
-            {clientValues.map((val) => {
+            {clientValues.map((val, index) => {
               const Icon = val.icon;
               return (
-                <div
+                <motion.div
                   key={val.title}
-                  className="rounded-2xl border border-slate-800/80 bg-slate-950/60 p-6 backdrop-blur hover:border-cyan-500/40 transition"
+                  initial={{ opacity: 0, y: 52, scale: 0.91, rotateX: 7 }}
+                  whileInView={{ opacity: 1, y: 0, scale: 1, rotateX: 0 }}
+                  viewport={{ once: false, amount: 0.12 }}
+                  transition={{
+                    duration: 0.7,
+                    delay: index * 0.12,
+                    ease: [0.22, 1, 0.36, 1],
+                  }}
+                  whileHover={{ y: -5 }}
+                  className="h-full rounded-2xl border border-slate-800/80 bg-slate-950/60 p-5 backdrop-blur transition-colors duration-300 hover:border-cyan-500/40 sm:p-6"
                 >
                   <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-cyan-500/10 text-cyan-400">
                     <Icon className="h-6 w-6" />
                   </div>
                   <h3 className="mt-5 text-lg font-bold text-white">{val.title}</h3>
                   <p className="mt-2 text-sm leading-relaxed text-slate-400">{val.desc}</p>
-                </div>
+                </motion.div>
               );
             })}
           </div>
         </section>
+        </Reveal>
 
         {/* ==========================================
             BOTTOM CTA
         ========================================== */}
+        <Reveal>
         <section className="mt-24 sm:mt-32 rounded-3xl border border-cyan-500/30 bg-gradient-to-r from-slate-900 via-slate-900 to-blue-950 p-8 sm:p-14 shadow-2xl relative overflow-hidden">
           <div className="absolute -right-10 -bottom-10 h-72 w-72 rounded-full bg-cyan-500/15 blur-3xl pointer-events-none" />
 
@@ -371,11 +442,11 @@ const ClientsPage = () => {
               </p>
             </div>
 
-            <div className="flex flex-col sm:flex-row items-center gap-4 shrink-0">
+            <div className="flex w-full shrink-0 flex-col items-stretch gap-3 sm:w-auto sm:flex-row sm:items-center sm:gap-4">
               <Button
                 asChild
                 size="lg"
-                className="rounded-full bg-cyan-400 px-8 py-6 text-base font-bold text-slate-950 hover:bg-cyan-300 shadow-[0_10px_25px_rgba(34,211,238,0.25)] transition-all"
+                className="w-full rounded-full bg-cyan-400 px-6 py-6 text-sm font-bold sm:w-auto sm:px-8 sm:text-base text-slate-950 hover:bg-cyan-300 shadow-[0_10px_25px_rgba(34,211,238,0.25)] transition-all"
               >
                 <Link to="/contact">
                   <span>Start a Partnership</span>
@@ -387,7 +458,7 @@ const ClientsPage = () => {
                 asChild
                 variant="outline"
                 size="lg"
-                className="rounded-full border-slate-700 bg-slate-900 px-6 py-6 text-sm font-semibold text-white hover:bg-slate-800"
+                className="w-full rounded-full border-slate-700 bg-slate-900 px-5 py-6 text-sm font-semibold sm:w-auto sm:px-6 text-white hover:bg-slate-800"
               >
                 <Link to="/clients/kk-mart">
                   <span>Explore KK Mart Case Study</span>
@@ -397,6 +468,7 @@ const ClientsPage = () => {
             </div>
           </div>
         </section>
+        </Reveal>
       </main>
     </div>
   );

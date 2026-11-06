@@ -23,7 +23,7 @@ const slides = [
   },
   {
     id: 2,
-    title: "Amazon Private Label Bootcamp",
+    title: " Amazon Private Label Bootcamp",
     description: "Build your own brand from scratch. Create unique products and dominate your niche.",
     image: officeWorkspace,
     mobileImage: officeWorkspaceMobile,
@@ -92,7 +92,7 @@ const HeroSlider = () => {
   const prevSlide = () => setCurrent((prev) => (prev - 1 + slides.length) % slides.length);
 
   return (
-    <div ref={heroRef} className="relative h-[560px] overflow-hidden bg-slate-950 sm:h-[620px] lg:h-[720px]">
+    <div ref={heroRef} className="relative h-[560px] overflow-hidden bg-slate-950 sm:h-[620px] lg:h-[720px] -mt-[76px] sm:-mt-[74px] lg:-mt-[86px]">
       <div
         aria-hidden="true"
         className="absolute inset-0 pointer-events-none"
@@ -135,7 +135,7 @@ const HeroSlider = () => {
             initial={{ opacity: 0, x: -30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.32, duration: 0.8, ease: 'easeOut' }}
-            className="absolute left-4 top-1/2 hidden -translate-y-1/2 rounded-2xl border border-white/15 bg-slate-950/45 p-4 text-left shadow-[0_20px_45px_rgba(15,23,42,0.25)] backdrop-blur-md md:block"
+            className="absolute left-4 top-1/4 hidden -translate-y-1/2 rounded-2xl border border-white/15 bg-slate-950/45 p-4 text-left shadow-[0_20px_45px_rgba(15,23,42,0.25)] backdrop-blur-md md:block"
           >
             <div className="text-[0.58rem] font-semibold uppercase tracking-[0.24em] text-cyan-200">Performance-led</div>
             <div className="mt-2 text-2xl font-black tracking-[-0.06em] text-white">4.9/5</div>
@@ -146,10 +146,10 @@ const HeroSlider = () => {
             initial={{ opacity: 0, x: 30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.42, duration: 0.8, ease: 'easeOut' }}
-            className="absolute right-4 top-1/3 hidden rounded-2xl border border-cyan-300/20 bg-slate-950/45 p-4 text-left shadow-[0_20px_45px_rgba(15,23,42,0.25)] backdrop-blur-md md:block"
+            className="absolute right-4 top-2/3 hidden rounded-2xl border border-cyan-300/20 bg-slate-950/45 p-4 text-left shadow-[0_20px_45px_rgba(15,23,42,0.25)] backdrop-blur-md md:block"
           >
             <div className="text-[0.58rem] font-semibold uppercase tracking-[0.24em] text-cyan-200">Built for scale</div>
-            <div className="mt-2 text-2xl font-black tracking-[-0.06em] text-white">Global</div>
+            <div className="mt-2 text-2xl font-black font-['Manrope'] tracking-[0.01em] text-white">Global</div>
             <p className="mt-1 text-xs text-slate-300">e-commerce & business growth</p>
           </motion.div>
 
@@ -168,7 +168,7 @@ const HeroSlider = () => {
                 initial={{ opacity: 0, y: 28 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.22, duration: 0.8, ease: 'easeOut' }}
-                className="mb-5 text-3xl font-black tracking-[-0.07em] text-white sm:text-6xl lg:text-7xl"
+                className="mb-5 font-manrope text-3xl font-extrabold tracking-[-0.04em] text-white drop-shadow-[0_4px_14px_rgba(0,0,0,0.4)] sm:text-6xl lg:text-7xl"
               >
                 {slides[current].title}
               </motion.h1>
@@ -200,14 +200,14 @@ const HeroSlider = () => {
       <button type="button" aria-label="Next slide" onClick={nextSlide} className="absolute right-3 top-1/2 -translate-y-1/2 rounded-full border border-white/20 bg-white/10 p-2 text-white backdrop-blur-sm transition-all duration-300 hover:bg-white/20 hover:scale-105 sm:right-6">
         <ChevronRight className="h-7 w-7 sm:h-8 sm:w-8" />
       </button>
-      <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex items-center space-x-2">
+      <div className="absolute bottom-6 left-1/2  -translate-x-1/2 flex items-center space-x-2">
         {slides.map((_, idx) => (
           <button
             key={idx}
             type="button"
             aria-label={`Go to slide ${idx + 1}`}
             onClick={() => setCurrent(idx)}
-            className={`h-2.5 rounded-full transition-all duration-300 ${idx === current ? 'w-10 bg-cyan-300 shadow-[0_0_16px_rgba(103,232,249,0.7)]' : 'w-2.5 bg-white/55 hover:bg-white/80'}`}
+            className={`h-2.5 rounded-full transition-all  duration-300 ${idx === current ? 'w-10 bg-cyan-300 shadow-[0_0_16px_rgba(103,232,249,0.7)]' : 'w-2.5 bg-white/55 hover:bg-white/80'}`}
           />
         ))}
       </div>

@@ -1,6 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
 
 @layer base {
   :root {
@@ -59,20 +63,29 @@
     overflow-x: clip;
   }
 
+ @layer base {
   body {
     @apply bg-background text-foreground;
     max-width: 100%;
     overflow-x: clip;
     overscroll-behavior-y: smooth;
-    font-family: Inter, 'Segoe UI', 'Avenir Next', sans-serif;
+    font-family: 'Manrope', sans-serif;
+
     background:
       radial-gradient(circle at top, rgba(59, 130, 246, 0.07), transparent 28%),
       linear-gradient(180deg, #fbfdff 0%, #f4f7fb 100%);
+
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
 
+  *,
+  *::before,
+  *::after {
+    font-family: 'Manrope', sans-serif !important;
+  }
+}
   body.mobile-menu-open {
     overflow: hidden;
   }
@@ -549,8 +562,8 @@
     font-size: 1rem;
   }
 
-  .about-ecosystem__node--one { top: 0; left: 7%; }
-  .about-ecosystem__node--two { right: 7%; top: 0; }
+  .about-ecosystem__node--one { top: 5rem; left: 10%; }
+  .about-ecosystem__node--two { right: 10%; top: 5rem; }
   .about-ecosystem__node--three { bottom: 0; left: 50%; transform: translateX(-50%); }
 
   .about-ecosystem__line {
@@ -562,7 +575,7 @@
   }
 
   .about-ecosystem__line--one { top: 37%; left: 25%; width: 25%; transform: rotate(28deg); }
-  .about-ecosystem__line--two { top: 37%; right: 25%; width: 25%; transform: rotate(152deg); }
+  .about-ecosystem__line--two { top: 54%; right: 25%; width: 25%; transform: rotate(-20deg); }
   .about-ecosystem__line--three { bottom: 30%; left: 50%; width: 17%; transform: rotate(90deg); }
 
   .about-vision__orb {
@@ -1043,6 +1056,7 @@
   .ecosystem-marquee__row + .ecosystem-marquee__row {
     margin-top: 0.4rem;
   }
+  
 
   .ecosystem-marquee__track {
     display: inline-flex;
@@ -1058,13 +1072,16 @@
     animation-duration: 38s;
   }
 
-  .ecosystem-marquee__item {
-    color: rgba(15, 23, 42, 0.92);
-    font-size: clamp(1.55rem, 4vw, 3.6rem);
-    font-weight: 900;
-    letter-spacing: -0.065em;
-    line-height: 0.95;
-  }
+ 
+ .ecosystem-marquee__item {
+  font-family: 'Manrope', sans-serif;
+  color: rgba(15, 23, 42, 0.92);
+  font-size: clamp(0.908rem, 1.452vw, 1.15rem);
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  line-height: 1.4;
+  text-transform: uppercase;
+}
 
   .ecosystem-marquee__row:nth-child(2) .ecosystem-marquee__item {
     color: rgba(37, 99, 235, 0.82);
@@ -1218,7 +1235,7 @@
       outline: 2px solid rgb(103 232 249);
       outline-offset: 4px;
     }
-
+  }
 
   @media (min-width: 769px) and (max-width: 1100px) {
     .about-flow { gap: 0.6rem; }
@@ -1235,12 +1252,15 @@
 
   body.gallery-modal-open { overflow: hidden; }
 
+
   .groish-photo-shell {
     appearance: none;
     border: 0;
     color: inherit;
     text-align: left;
   }
+
+  @media (max-width: 768px) {
     .final-cta__light,
     .final-cta__light--secondary {
       animation-duration: 24s;
@@ -1251,6 +1271,7 @@
       animation: none !important;
     }
   }
+
 
   .groish-photo-shell:hover .groish-photo-media {
     filter: saturate(1.12) contrast(1.06) brightness(1.02);
@@ -1485,4 +1506,30 @@
 
 .groish-ad-container ins.adsbygoogle[data-ad-status="unfilled"] {
   display: none !important;
+}
+
+/* GLOBAL MANROPE TYPOGRAPHY */
+html,
+body,
+#root,
+#root * {
+  font-family: 'Manrope', sans-serif !important;
+}
+
+input,
+button,
+textarea,
+select {
+  font-family: 'Manrope', sans-serif !important;
+}
+
+/* MANROPE — HEADINGS & PARAGRAPHS ONLY */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  font-family: 'Manrope', sans-serif !important;
 }

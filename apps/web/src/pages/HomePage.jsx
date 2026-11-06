@@ -105,38 +105,108 @@ const HomePage = () => {
           ],
         })}</script>
       </Helmet>
-      
+
       <HeroSlider />
 
       <EcosystemMarquee />
 
       <section className="groish-light-band overflow-hidden bg-white py-20 sm:py-28">
         <div className="container relative mx-auto px-4">
-          <div className="mb-12 max-w-3xl sm:mb-16">
-            <p className="premium-eyebrow">The GROISH difference</p>
-            <h2 className="premium-section-title mt-3 max-w-2xl text-3xl sm:text-6xl">Built as a group. Designed to move businesses forward.</h2>
+          <div className="mb-12 max-w-3xl mx-auto text-center sm:mb-16">
+            <motion.div
+              initial={{ opacity: 0, y: 25 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, ease: "easeOut" }}
+              className="mb-7 inline-flex"
+            >
+              <div className="relative group rounded-full p-[1.5px] overflow-hidden shadow-[0_0_20px_rgba(37,99,235,0.18),0_8px_30px_rgba(15,23,42,0.10)]">
+
+                {/* Animated running gradient border */}
+                <motion.div
+                  animate={{ rotate: 360 }}
+                  transition={{
+                    duration: 4,
+                    repeat: Infinity,
+                    ease: "linear"
+                  }}
+                  className="absolute inset-[-200%] bg-[conic-gradient(from_0deg,#0f172a,#2563eb,#60a5fa,#1d4ed8,#0f172a)]"
+                />
+
+                {/* Badge background */}
+                <div className="relative flex items-center gap-3 rounded-full bg-gradient-to-r from-slate-950 via-blue-950 to-slate-900 px-6 py-3">
+
+                  {/* Glowing indicator */}
+                  <span className="relative flex h-2 w-2">
+                    <span className="absolute inset-0 animate-ping rounded-full bg-blue-400 opacity-70" />
+                    <span className="relative h-2 w-2 rounded-full bg-blue-400 shadow-[0_0_10px_#60a5fa]" />
+                  </span>
+
+                  <p className="premium-eyebrow mb-0 font-['Manrope'] text-xs font-bold tracking-[0.15em] text-blue-100">
+                    The GROISH difference
+                  </p>
+
+                  <span className="text-blue-400 text-xs">✦</span>
+                </div>
+              </div>
+            </motion.div>
+
+            <h2 className="premium-section-title max-w-1xl mx-auto text-3xl sm:text-5xl font-['Manrope']">
+              Built as a group. Designed to move businesses forward.
+            </h2>
           </div>
 
           <div className="grid items-stretch gap-8 lg:grid-cols-[0.82fr_1.18fr] lg:gap-16">
-            <div className="flex flex-col divide-y divide-slate-200 border-y border-slate-200">
+
+            <div className="flex flex-col gap-3">
               {whyStories.map((story, index) => {
                 const Icon = story.icon;
                 const isActive = activeWhyIndex === index;
 
                 return (
-                  <button
+                  <motion.button
                     key={story.number}
                     type="button"
                     onClick={() => setActiveWhyIndex(index)}
                     onMouseEnter={() => setActiveWhyIndex(index)}
                     onFocus={() => setActiveWhyIndex(index)}
-                    className={`group flex w-full items-center gap-4 py-5 text-left transition-colors duration-300 sm:py-7 ${isActive ? 'text-slate-950' : 'text-slate-400 hover:text-slate-700'}`}
+                    whileHover={{ x: 5 }}
+                    whileTap={{ scale: 0.985 }}
+                    className={`relative flex w-full items-center gap-5 overflow-hidden rounded-2xl border p-5 text-left transition-all duration-500 sm:p-7 ${isActive
+                        ? "border-blue-300/80 bg-gradient-to-r from-blue-50 via-white to-blue-50 shadow-[0_12px_35px_rgba(37,99,235,0.12)]"
+                        : "border-transparent bg-slate-50/50 hover:border-slate-200 hover:bg-white"
+                      }`}
                     aria-pressed={isActive}
                   >
-                    <span className={`text-xs font-bold tracking-[0.2em] transition-colors duration-300 ${isActive ? 'text-blue-600' : 'text-slate-400'}`}>{story.number}</span>
-                    <span className="flex-1 text-xl font-black tracking-[-0.05em] sm:text-3xl">{story.title}</span>
-                    <Icon className={`h-5 w-5 transition-all duration-300 ${isActive ? 'translate-x-0 text-blue-600 opacity-100' : '-translate-x-2 opacity-0 group-hover:translate-x-0 group-hover:opacity-70'}`} />
-                  </button>
+                    <motion.span
+                      animate={{
+                        color: isActive ? "#2563eb" : "#94a3b8",
+                        scale: isActive ? 1.1 : 1
+                      }}
+                      className="text-xs font-extrabold tracking-[0.18em]"
+                    >
+                      {story.number}
+                    </motion.span>
+
+                    <span className={`flex-1 font-['Manrope'] text-xl tracking-[-0.045em] sm:text-3xl ${isActive ? "font-extrabold text-slate-950" : "font-bold text-slate-500"
+                      }`}>
+                      {story.title}
+                    </span>
+
+                    <motion.span
+                      animate={{
+                        rotate: isActive ? 0 : -45,
+                        scale: isActive ? 1 : 0.9
+                      }}
+                      transition={{ duration: 0.4 }}
+                      className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-full transition-colors duration-500 ${isActive
+                          ? "bg-blue-600 text-white shadow-[0_5px_18px_rgba(37,99,235,0.35)]"
+                          : "bg-white text-slate-400 shadow-sm"
+                        }`}
+                    >
+                      <Icon className="h-5 w-5" />
+                    </motion.span>
+                  </motion.button>
                 );
               })}
             </div>
@@ -200,63 +270,260 @@ const HomePage = () => {
         </Suspense>
       </div>
 
-      <section className="groish-light-band bg-slate-50 py-20 sm:py-24">
-        <div className="container mx-auto px-4">
-          <div className="mx-auto mb-12 max-w-2xl text-center">
-            <p className="premium-eyebrow">Our operating model</p>
-            <h2 className="premium-section-title text-3xl sm:text-4xl">How GROISH creates value</h2>
-            <p className="premium-section-copy">A connected group of capabilities, brought together for businesses and people at different stages of growth.</p>
-          </div>
-          <div className="mx-auto grid max-w-6xl grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
-            {valueStreams.map(({ title, description, icon: Icon }, index) => (
-              <motion.div
-                key={title}
-                initial={{ opacity: 0, y: 18 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.25 }}
-                transition={{ duration: 0.45, delay: index * 0.08 }}
-                className="rounded-[1.5rem] border border-slate-200 bg-white p-6 shadow-[0_18px_35px_rgba(15,23,42,0.04)] transition-all duration-300 hover:-translate-y-1 hover:border-slate-300 hover:shadow-[0_22px_50px_rgba(15,23,42,0.08)]"
-              >
-                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-slate-100 text-blue-600">
-                  <Icon className="h-6 w-6" />
-                </div>
-                <h3 className="mt-8 text-xl font-bold text-slate-950">{title}</h3>
-                <p className="mt-3 text-sm leading-6 text-slate-600">{description}</p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <section className="groish-light-band relative overflow-hidden bg-slate-50 py-20 sm:py-24">
+  {/* Background Effects */}
+  <div className="pointer-events-none absolute -left-32 top-20 h-72 w-72 rounded-full bg-blue-200/30 blur-[100px]" />
+  <div className="pointer-events-none absolute -right-32 bottom-0 h-72 w-72 rounded-full bg-cyan-200/30 blur-[100px]" />
 
-      <section className="groish-light-band bg-white py-20 sm:py-24">
-        <div className="container mx-auto px-4">
-          <div className="mx-auto mb-12 max-w-2xl text-center">
-            <p className="premium-eyebrow">Our Learning Process</p>
-            <h2 className="premium-section-title text-3xl sm:text-4xl">A simple path to traction</h2>
-          </div>
-          <div className="mx-auto grid max-w-5xl grid-cols-1 gap-4 md:grid-cols-5">
-            {["Enrollment", "Live Classes", "Practical Tasks", "Account Setup", "First Sale"].map((step, i) => (
-              <motion.div
-                key={step}
-                initial={{ opacity: 0, y: 18 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.2 }}
-                transition={{ duration: 0.45, delay: i * 0.07 }}
-                className="relative rounded-[1.3rem] border border-slate-200 bg-gradient-to-b from-blue-50 to-white p-4 shadow-[0_16px_30px_rgba(15,23,42,0.04)]"
-              >
-                <div className="mx-auto mb-3 flex h-9 w-9 items-center justify-center rounded-full bg-slate-950 font-bold text-white shadow-[0_10px_20px_rgba(15,23,42,0.18)]">{i+1}</div>
-                <p className="text-center text-sm font-semibold text-slate-800">{step}</p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
+  <div className="container relative z-10 mx-auto px-4">
 
-      <section className="bg-slate-100/50 py-8 border-y border-slate-200/60">
+    {/* Section Heading */}
+    <motion.div
+      initial={{ opacity: 0, y: 35 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: false, amount: 0.3 }}
+      transition={{ duration: 0.8, ease: "easeOut" }}
+      className="mx-auto mb-14 max-w-2xl text-center"
+    >
+      <motion.p
+        initial={{ opacity: 0, y: 15 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: false }}
+        transition={{ duration: 0.6 }}
+        className="premium-eyebrow"
+      >
+        Our operating model
+      </motion.p>
+
+      <motion.h2
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: false }}
+        transition={{ duration: 0.7, delay: 0.1 }}
+        className="premium-section-title text-3xl font-extrabold tracking-tight sm:text-4xl lg:text-5xl"
+      >
+        How GROISH <span className="bg-gradient-to-r from-blue-600 via-cyan-500 to-blue-700 bg-clip-text text-transparent">creates value</span>
+      </motion.h2>
+
+      <motion.p
+        initial={{ opacity: 0, y: 15 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: false }}
+        transition={{ duration: 0.7, delay: 0.2 }}
+        className="premium-section-copy mx-auto mt-4 max-w-xl"
+      >
+        A connected group of capabilities, brought together for businesses and people at different stages of growth.
+      </motion.p>
+
+      <motion.div
+        initial={{ width: 0 }}
+        whileInView={{ width: 85 }}
+        viewport={{ once: false }}
+        transition={{ duration: 0.9, delay: 0.3 }}
+        className="mx-auto mt-6 h-1 rounded-full bg-gradient-to-r from-blue-500 via-cyan-400 to-blue-600"
+      />
+    </motion.div>
+
+    {/* Value Cards */}
+    <div className="mx-auto grid max-w-6xl grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
+      {valueStreams.map(({ title, description, icon: Icon }, index) => (
+        <motion.div
+          key={title}
+          initial={{
+            opacity: 0,
+            y: 55,
+            scale: 0.92,
+            rotateX: 8,
+          }}
+          whileInView={{
+            opacity: 1,
+            y: 0,
+            scale: 1,
+            rotateX: 0,
+          }}
+          viewport={{ once: false, amount: 0.2 }}
+          transition={{
+            duration: 0.7,
+            delay: index * 0.12,
+            ease: [0.22, 1, 0.36, 1],
+          }}
+          whileHover={{
+            y: -12,
+            scale: 1.035,
+            transition: { duration: 0.3 },
+          }}
+          className="group relative"
+        >
+          {/* Card Glow */}
+          <div className="absolute -inset-[1px] rounded-[1.6rem] bg-gradient-to-br from-blue-400/0 via-cyan-400/0 to-blue-500/0 opacity-0 blur-md transition-all duration-500 group-hover:from-blue-400/50 group-hover:via-cyan-400/40 group-hover:to-blue-500/50 group-hover:opacity-100" />
+
+          <div className="relative h-full overflow-hidden rounded-[1.5rem] border border-slate-200 bg-white p-6 shadow-[0_18px_35px_rgba(15,23,42,0.05)] transition-all duration-500 group-hover:border-blue-200 group-hover:shadow-[0_25px_55px_rgba(37,99,235,0.13)]">
+
+            {/* Top Accent */}
+            <div className="absolute left-0 top-0 h-1 w-0 bg-gradient-to-r from-blue-500 to-cyan-400 transition-all duration-500 group-hover:w-full" />
+
+            {/* Icon */}
+            <motion.div
+              animate={{
+                y: [0, -5, 0],
+              }}
+              transition={{
+                duration: 3 + index * 0.4,
+                repeat: Infinity,
+                ease: "easeInOut",
+              }}
+              className="flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-blue-50 to-cyan-50 text-blue-600 shadow-sm ring-1 ring-blue-100 transition-all duration-500 group-hover:from-blue-600 group-hover:to-cyan-500 group-hover:text-white group-hover:shadow-[0_10px_25px_rgba(37,99,235,0.3)]"
+            >
+              <Icon className="h-7 w-7 transition-transform duration-500 group-hover:scale-110" />
+            </motion.div>
+
+            {/* Card Content */}
+            <h3 className="mt-8 text-xl font-extrabold tracking-tight text-slate-950 transition-colors duration-300 group-hover:text-blue-700">
+              {title}
+            </h3>
+
+            <p className="mt-3 text-sm leading-7 text-slate-600">
+              {description}
+            </p>
+
+            {/* Bottom Accent */}
+            <div className="mt-6 h-[2px] w-10 rounded-full bg-blue-200 transition-all duration-500 group-hover:w-20 group-hover:bg-gradient-to-r group-hover:from-blue-500 group-hover:to-cyan-400" />
+          </div>
+        </motion.div>
+      ))}
+    </div>
+  </div>
+</section>
+      <section className="groish-light-band relative overflow-hidden bg-white py-20 sm:py-24">
+
+  {/* Background Effects */}
+  <div className="pointer-events-none absolute -right-32 top-10 h-72 w-72 rounded-full bg-blue-100/60 blur-[100px]" />
+  <div className="pointer-events-none absolute -left-32 bottom-0 h-72 w-72 rounded-full bg-cyan-100/50 blur-[100px]" />
+
+  <div className="container relative z-10 mx-auto px-4">
+
+    {/* Section Heading */}
+    <motion.div
+      initial={{ opacity: 0, y: 35 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: false, amount: 0.3 }}
+      transition={{ duration: 0.8, ease: "easeOut" }}
+      className="mx-auto mb-16 max-w-2xl text-center"
+    >
+      <p className="premium-eyebrow">
+        Our Learning Process
+      </p>
+
+      <motion.h2
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: false }}
+        transition={{ duration: 0.7, delay: 0.1 }}
+        className="premium-section-title text-3xl font-extrabold tracking-tight sm:text-4xl lg:text-5xl"
+      >
+        A simple path to <span className="bg-gradient-to-r from-blue-600 via-cyan-500 to-blue-700 bg-clip-text text-transparent">traction</span>
+      </motion.h2>
+
+      <motion.div
+        initial={{ width: 0 }}
+        whileInView={{ width: 85 }}
+        viewport={{ once: false }}
+        transition={{ duration: 0.9, delay: 0.3 }}
+        className="mx-auto mt-6 h-1 rounded-full bg-gradient-to-r from-blue-500 via-cyan-400 to-blue-600"
+      />
+    </motion.div>
+
+    {/* Learning Steps */}
+    <div className="relative mx-auto max-w-5xl">
+
+      {/* Connecting Line - Desktop */}
+      <div className="absolute left-[10%] right-[10%] top-[29px] hidden h-[2px] overflow-hidden bg-slate-200 md:block">
+        <motion.div
+          initial={{ scaleX: 0 }}
+          whileInView={{ scaleX: 1 }}
+          viewport={{ once: false, amount: 0.5 }}
+          transition={{
+            duration: 2,
+            ease: "easeInOut",
+          }}
+          style={{ transformOrigin: "left" }}
+          className="h-full w-full bg-gradient-to-r from-blue-500 via-cyan-400 to-blue-600"
+        />
+      </div>
+
+      {/* Steps Grid */}
+      <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 md:grid-cols-5 md:gap-4">
+
+        {["Enrollment", "Live Classes", "Practical Tasks", "Account Setup", "First Sale"].map((step, i) => (
+          <motion.div
+            key={step}
+            initial={{
+              opacity: 0,
+              y: 45,
+              scale: 0.9,
+            }}
+            whileInView={{
+              opacity: 1,
+              y: 0,
+              scale: 1,
+            }}
+            viewport={{ once: false, amount: 0.25 }}
+            transition={{
+              duration: 0.65,
+              delay: i * 0.14,
+              ease: [0.22, 1, 0.36, 1],
+            }}
+            whileHover={{
+              y: -10,
+              scale: 1.045,
+              transition: { duration: 0.25 },
+            }}
+            className="group relative"
+          >
+            <div className="relative flex h-full flex-col items-center rounded-[1.5rem] border border-slate-200 bg-gradient-to-b from-blue-50 via-white to-white p-6 shadow-[0_16px_30px_rgba(15,23,42,0.05)] transition-all duration-500 group-hover:border-blue-300 group-hover:shadow-[0_22px_45px_rgba(37,99,235,0.13)]">
+
+              {/* Step Number */}
+              <motion.div
+                animate={{
+                  boxShadow: [
+                    "0 0 0 0px rgba(59,130,246,0.08)",
+                    "0 0 0 9px rgba(59,130,246,0)",
+                    "0 0 0 0px rgba(59,130,246,0.08)",
+                  ],
+                }}
+                transition={{
+                  duration: 3,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                  delay: i * 0.25,
+                }}
+                className="relative z-10 mb-5 flex h-14 w-14 items-center justify-center rounded-full bg-gradient-to-br from-slate-950 to-blue-950 text-lg font-extrabold text-white shadow-[0_10px_25px_rgba(15,23,42,0.2)] ring-4 ring-white transition-all duration-500 group-hover:from-blue-600 group-hover:to-cyan-500"
+              >
+                {i + 1}
+              </motion.div>
+
+              {/* Step Title */}
+              <p className="text-center text-sm font-extrabold tracking-tight text-slate-800 transition-colors duration-300 group-hover:text-blue-700 sm:text-base">
+                {step}
+              </p>
+
+              {/* Bottom Accent */}
+              <div className="mt-4 h-[3px] w-8 rounded-full bg-blue-200 transition-all duration-500 group-hover:w-14 group-hover:bg-gradient-to-r group-hover:from-blue-500 group-hover:to-cyan-400" />
+
+            </div>
+          </motion.div>
+        ))}
+
+      </div>
+    </div>
+  </div>
+</section>
+
+      {/* <section className="bg-slate-100/50 py-8 border-y border-slate-200/60">
         <div className="container mx-auto px-4 max-w-5xl">
           <AdSenseAd variant="banner" format="auto" />
         </div>
-      </section>
+      </section> */}
 
       <motion.section
         initial={{ opacity: 0, y: 18 }}
@@ -314,7 +581,7 @@ const HomePage = () => {
         </div>
       </motion.section>
 
-      <section className="relative overflow-hidden bg-slate-900 py-16 text-white sm:py-20">
+      {/* <section className="relative overflow-hidden bg-slate-900 py-16 text-white sm:py-20">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(56,189,248,0.18),transparent_28%),radial-gradient(circle_at_bottom_right,rgba(59,130,246,0.22),transparent_30%)]" />
         <div className="container relative mx-auto max-w-5xl px-4">
           <div className="grid items-center gap-12 md:grid-cols-2">
@@ -339,7 +606,210 @@ const HomePage = () => {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
+      <section className="group relative isolate overflow-hidden bg-slate-950 py-14 text-white sm:py-16 lg:py-20">
+
+  {/* Background Gradients */}
+  <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_10%_20%,rgba(14,165,233,0.2),transparent_35%),radial-gradient(ellipse_at_90%_80%,rgba(37,99,235,0.22),transparent_35%)]" />
+
+  {/* Animated Background Orbs */}
+  <motion.div
+    animate={{
+      x: [0, 35, 0],
+      y: [0, -25, 0],
+      scale: [1, 1.15, 1],
+    }}
+    transition={{
+      duration: 9,
+      repeat: Infinity,
+      ease: "easeInOut",
+    }}
+    className="pointer-events-none absolute -left-32 top-10 h-80 w-80 rounded-full bg-cyan-500/10 blur-[100px]"
+  />
+
+  <motion.div
+    animate={{
+      x: [0, -30, 0],
+      y: [0, 30, 0],
+      scale: [1, 1.2, 1],
+    }}
+    transition={{
+      duration: 11,
+      repeat: Infinity,
+      ease: "easeInOut",
+    }}
+    className="pointer-events-none absolute -bottom-32 -right-20 h-96 w-96 rounded-full bg-blue-600/15 blur-[110px]"
+  />
+
+  {/* Background Grid */}
+  <div className="pointer-events-none absolute inset-0 opacity-[0.06] [background-image:linear-gradient(rgba(255,255,255,0.3)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.3)_1px,transparent_1px)] [background-size:55px_55px]" />
+
+  <div className="container relative z-10 mx-auto max-w-6xl px-4">
+
+    {/* Main Grid */}
+    <div className="grid grid-cols-1 items-start gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:gap-14">
+
+      {/* LEFT CONTENT */}
+      <motion.div
+        initial={{ opacity: 0, x: -40 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        viewport={{ once: false, amount: 0.15 }}
+        transition={{
+          duration: 0.85,
+          ease: [0.22, 1, 0.36, 1],
+        }}
+        className="w-full pt-2 lg:sticky lg:top-24"
+      >
+
+        {/* Eyebrow Badge */}
+        <motion.div
+          initial={{ opacity: 0, y: 15 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: false }}
+          transition={{ duration: 0.6 }}
+          className="mb-7 inline-flex items-center gap-3 rounded-full border border-cyan-400/30 bg-gradient-to-r from-blue-950/90 via-slate-900 to-cyan-950/80 px-5 py-3 shadow-[0_0_30px_rgba(34,211,238,0.12)] backdrop-blur-xl"
+        >
+          <span className="relative flex h-2.5 w-2.5">
+            <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-cyan-400 opacity-70" />
+            <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-cyan-300" />
+          </span>
+
+          <span className="text-[11px] font-extrabold uppercase tracking-[0.2em] text-cyan-200">
+            Ready to start
+          </span>
+
+          <span className="text-cyan-400">✦</span>
+        </motion.div>
+
+        {/* Heading */}
+        <motion.h2
+          initial={{ opacity: 0, y: 25 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: false }}
+          transition={{ duration: 0.8, delay: 0.1 }}
+          className="max-w-xl text-4xl font-extrabold leading-[1.12] tracking-[-0.055em] text-white drop-shadow-[0_5px_20px_rgba(0,0,0,0.3)] sm:text-5xl lg:text-6xl"
+        >
+          Have a challenge
+          <span className="block bg-gradient-to-r from-cyan-300 via-blue-400 to-cyan-300 bg-clip-text text-transparent">
+            worth solving?
+          </span>
+        </motion.h2>
+
+        {/* Description */}
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: false }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          className="mt-6 max-w-lg text-base leading-8 text-slate-300 sm:text-lg"
+        >
+          Tell us what you are building, improving, or scaling. Our team will
+          help you find the right next step across the GROISH ecosystem.
+        </motion.p>
+
+        {/* Divider */}
+        <motion.div
+          initial={{ width: 0 }}
+          whileInView={{ width: 100 }}
+          viewport={{ once: false }}
+          transition={{ duration: 1, delay: 0.4 }}
+          className="mt-7 h-1 rounded-full bg-gradient-to-r from-cyan-400 via-blue-500 to-transparent"
+        />
+
+        {/* Benefits */}
+        <div className="mt-9 space-y-4">
+          {[
+            "Clear, practical recommendations",
+            "Specialized teams for each need",
+            "A focused path forward",
+          ].map((item, index) => (
+            <motion.div
+              key={item}
+              initial={{ opacity: 0, x: -25 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: false }}
+              transition={{
+                duration: 0.6,
+                delay: 0.35 + index * 0.15,
+              }}
+              whileHover={{ x: 7 }}
+              className="group/item flex items-center gap-4"
+            >
+              <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-cyan-400/25 bg-cyan-400/10 text-cyan-300 shadow-[0_0_18px_rgba(34,211,238,0.08)] transition-all duration-300 group-hover/item:border-cyan-300/60 group-hover/item:bg-cyan-400/20 group-hover/item:shadow-[0_0_20px_rgba(34,211,238,0.2)]">
+                <CheckCircle2 className="h-5 w-5" />
+              </div>
+
+              <span className="text-sm font-semibold text-slate-200 transition-colors duration-300 group-hover/item:text-cyan-200 sm:text-base">
+                {item}
+              </span>
+            </motion.div>
+          ))}
+        </div>
+
+        {/* Bottom Note */}
+        <motion.p
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: false }}
+          transition={{ duration: 0.8, delay: 0.8 }}
+          className="mt-9 text-xs font-medium tracking-wide text-slate-500"
+        >
+          One conversation. Clear direction. Better possibilities.
+        </motion.p>
+
+      </motion.div>
+
+      {/* RIGHT CONTACT FORM */}
+      <motion.div
+        initial={{ opacity: 0, x: 35 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        viewport={{ once: false, amount: 0.15 }}
+        transition={{
+          duration: 0.8,
+          ease: [0.22, 1, 0.36, 1],
+        }}
+        className="relative w-full min-w-0"
+      >
+
+        {/* Form Glow */}
+        <div className="absolute -inset-[1px] rounded-[1.8rem] bg-gradient-to-br from-cyan-400/40 via-blue-500/20 to-cyan-400/30 opacity-70 blur-sm" />
+
+        {/* Form Container */}
+        <div className="relative w-full overflow-hidden rounded-[1.8rem] border border-white/10 bg-slate-900/90 p-2 shadow-[0_25px_70px_rgba(0,0,0,0.35)] backdrop-blur-2xl sm:p-3">
+
+          {/* Top Accent */}
+          <div className="absolute left-0 top-0 h-[2px] w-full bg-gradient-to-r from-transparent via-cyan-400 to-transparent" />
+
+          {loadBelowFold ? (
+            <Suspense
+              fallback={
+                <div className="flex min-h-96 items-center justify-center rounded-2xl bg-white/5">
+                  <div className="flex items-center gap-3 text-sm text-slate-400">
+                    <span className="h-5 w-5 animate-spin rounded-full border-2 border-cyan-400/30 border-t-cyan-400" />
+                    Loading contact form...
+                  </div>
+                </div>
+              }
+            >
+              <ContactForm compact />
+            </Suspense>
+          ) : (
+            <div className="flex min-h-96 items-center justify-center rounded-2xl border border-white/10 bg-white/[0.03]">
+              <div className="text-center">
+                <div className="mx-auto mb-4 h-10 w-10 animate-pulse rounded-full border border-cyan-400/30 bg-cyan-400/10" />
+                <p className="text-sm font-medium text-slate-400">
+                  Contact form will load here
+                </p>
+              </div>
+            </div>
+          )}
+
+        </div>
+      </motion.div>
+
+    </div>
+  </div>
+</section>
     </div>
   );
 };

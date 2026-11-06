@@ -19,13 +19,13 @@ const MarqueeTrack = ({ reverse = false }) => {
 
 const EcosystemMarquee = () => (
 	<section className="ecosystem-marquee" aria-label="GROISH ecosystem" data-cursor="text">
-		<div className="ecosystem-marquee__row" aria-hidden="true">
-			<MarqueeTrack />
-		</div>
-		<div className="ecosystem-marquee__row" aria-hidden="true">
-			<MarqueeTrack reverse />
-		</div>
-	</section>
+  <div className="ecosystem-marquee__row font-['Manrope'] text-sm" aria-hidden="true">
+    <MarqueeTrack />
+  </div>
+  <div className="ecosystem-marquee__row font-['Manrope'] text-sm" aria-hidden="true">
+    <MarqueeTrack reverse />
+  </div>
+</section>
 );
 
 export default EcosystemMarquee;

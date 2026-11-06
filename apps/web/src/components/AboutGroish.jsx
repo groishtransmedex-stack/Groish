@@ -73,9 +73,32 @@ const AboutGroish = () => {
 						viewport={{ once: true, amount: 0.25 }}
 						transition={{ duration: 0.75, ease: 'easeOut' }}
 					>
-						<p className="premium-eyebrow">About GROISH</p>
-						<h2 className="max-w-xl text-4xl font-black tracking-[-0.06em] text-slate-950 sm:text-5xl">A parent group for ambitious businesses.</h2>
-						<p className="mt-6 max-w-xl text-lg leading-8 text-slate-600">GROISH is the parent business group behind multiple specialized companies, bringing entrepreneurial thinking, operational depth, and focused expertise together under one connected vision.</p>
+						<div className="relative mb-4 inline-flex items-center gap-3 rounded-full bg-gradient-to-r from-slate-950 via-blue-950 to-slate-900 px-6 py-3 shadow-[0_8px_25px_rgba(37,99,235,0.2)]">
+							<span className="relative flex h-2 w-2">
+								<span className="absolute inset-0 animate-ping rounded-full bg-blue-400 opacity-70" />
+								<span className="relative h-2 w-2 rounded-full bg-blue-400 shadow-[0_0_10px_#60a5fa]" />
+							</span>
+
+							<p className="premium-eyebrow mb-0 font-['Manrope'] text-xs font-bold tracking-[0.15em] text-blue-100">
+								About GROISH
+							</p>
+
+							<span className="text-xs text-blue-400">✦</span>
+						</div>
+						<motion.div
+							initial={{ opacity: 0, y: 28 }}
+							animate={{ opacity: 1, y: 0 }}
+							transition={{ delay: 0.22, duration: 0.8, ease: "easeOut" }}
+							className="w-full text-left"
+						>
+							<h2 className="max-w-xl text-left text-4xl font-black tracking-[-0.06em] text-slate-950 sm:text-5xl font-['Manrope']">
+								A parent group for{" "}
+								<span className="bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-transparent">
+									ambitious businesses.
+								</span>
+							</h2>
+						</motion.div>	
+											<p className="mt-6 max-w-xl text-lg leading-6 text-slate-600">GROISH is the parent business group behind multiple specialized companies, bringing entrepreneurial thinking, operational depth, and focused expertise together under one connected vision.</p>
 						<p className="mt-5 max-w-xl leading-7 text-slate-600">Across our companies, we build the capabilities businesses need to grow: digital and technology solutions, healthcare support, e-commerce expertise, and practical education that turns knowledge into action.</p>
 
 						<div className="mt-8 grid grid-cols-2 gap-3 sm:grid-cols-3">

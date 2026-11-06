@@ -1,25 +1,25 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
-import { 
-  Building2, 
-  MapPin, 
-  Megaphone, 
-  Truck, 
-  Share2, 
-  Globe, 
-  Cpu, 
-  Search, 
-  Sparkles, 
-  ArrowUpRight, 
-  ChevronRight, 
-  ChevronLeft, 
-  X, 
-  Eye, 
-  CheckCircle2, 
-  Layers, 
-  TrendingUp, 
-  Tv, 
-  Smartphone, 
+import {
+  Building2,
+  MapPin,
+  Megaphone,
+  Truck,
+  Share2,
+  Globe,
+  Cpu,
+  Search,
+  Sparkles,
+  ArrowUpRight,
+  ChevronRight,
+  ChevronLeft,
+  X,
+  Eye,
+  CheckCircle2,
+  Layers,
+  TrendingUp,
+  Tv,
+  Smartphone,
   Calendar,
   Compass,
   Maximize2,
@@ -449,23 +449,25 @@ export const kkmartGalleryData = [
 const socialPlatforms = [
   {
     name: 'Facebook',
+    url: 'https://www.facebook.com/share/1EkTBobYsg/',
     role: 'Community Engagement & Local Store Promotions',
     badge: 'Hyper-Local Ads',
     color: 'from-blue-600 to-indigo-600',
     icon: (
       <svg className="h-5 w-5 fill-current" viewBox="0 0 24 24">
-        <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+        <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
       </svg>
     )
   },
   {
     name: 'Instagram',
+    url: 'https://www.instagram.com/_groish_?psln=MWdkd3JkcGl6dzdmZg==',
     role: 'Visual Showcase, Reels, Fresh Deals & Influencers',
     badge: 'Reels & Stories Blitz',
     color: 'from-pink-500 via-rose-500 to-amber-500',
     icon: (
       <svg className="h-5 w-5 fill-current" viewBox="0 0 24 24">
-        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.163-2.759 6.163-6.163c0-3.403-2.759-6.162-6.163-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.163-2.759 6.163-6.163c0-3.403-2.759-6.162-6.163-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
       </svg>
     )
   },
@@ -476,7 +478,7 @@ const socialPlatforms = [
     color: 'from-cyan-500 via-slate-900 to-rose-500',
     icon: (
       <svg className="h-5 w-5 fill-current" viewBox="0 0 24 24">
-        <path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.24 1.07-.14 1.61.24 1.64 1.82 2.89 3.48 2.78 1.42-.03 2.69-.99 3.09-2.35.14-.52.2-1.07.2-1.61V.02h-.03z"/>
+        <path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.24 1.07-.14 1.61.24 1.64 1.82 2.89 3.48 2.78 1.42-.03 2.69-.99 3.09-2.35.14-.52.2-1.07.2-1.61V.02h-.03z" />
       </svg>
     )
   },
@@ -487,18 +489,19 @@ const socialPlatforms = [
     color: 'from-red-600 to-rose-600',
     icon: (
       <svg className="h-5 w-5 fill-current" viewBox="0 0 24 24">
-        <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+        <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
       </svg>
     )
   },
   {
     name: 'LinkedIn',
+    url: 'https://www.linkedin.com/company/groish/',
     role: 'Corporate Growth, Vendor Partnerships & Talent Hiring',
     badge: 'B2B & Employer Brand',
     color: 'from-sky-700 to-blue-700',
     icon: (
       <svg className="h-5 w-5 fill-current" viewBox="0 0 24 24">
-        <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+        <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
       </svg>
     )
   }
@@ -544,13 +547,13 @@ const KKMartCaseStudy = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   // Filter gallery items
-  const filteredGallery = activeTab === 'all' 
-    ? kkmartGalleryData 
+  const filteredGallery = activeTab === 'all'
+    ? kkmartGalleryData
     : activeTab === 'videos'
-    ? kkmartGalleryData.filter(item => item.type === 'video')
-    : activeTab === 'photos'
-    ? kkmartGalleryData.filter(item => item.type === 'image')
-    : kkmartGalleryData.filter(item => item.category.toLowerCase().includes(activeTab.toLowerCase()));
+      ? kkmartGalleryData.filter(item => item.type === 'video')
+      : activeTab === 'photos'
+        ? kkmartGalleryData.filter(item => item.type === 'image')
+        : kkmartGalleryData.filter(item => item.category.toLowerCase().includes(activeTab.toLowerCase()));
 
   // Keyboard navigation for lightbox
   const handleKeyDown = useCallback((e) => {
@@ -590,15 +593,15 @@ const KKMartCaseStudy = () => {
   };
 
   return (
-    <section 
-      id="case-study-kkmart" 
+    <section
+      id="case-study-kkmart"
       className="relative isolate overflow-hidden bg-slate-950 py-24 sm:py-32 text-slate-100"
     >
       {/* Background Ambient Glows & Grid Accent */}
       <div className="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
         <div className="absolute -top-40 left-1/2 -translate-x-1/2 h-[500px] w-[900px] rounded-full bg-[radial-gradient(circle_at_center,rgba(56,189,248,0.14),transparent_65%)] blur-3xl" />
         <div className="absolute bottom-10 right-[-10%] h-[400px] w-[600px] rounded-full bg-[radial-gradient(circle_at_center,rgba(59,130,246,0.12),transparent_70%)] blur-3xl" />
-        <div 
+        <div
           className="absolute inset-0 opacity-[0.035]"
           style={{
             backgroundImage: `radial-gradient(circle at 1px 1px, rgba(255,255,255,0.7) 1px, transparent 0)`,
@@ -627,41 +630,89 @@ const KKMartCaseStudy = () => {
         </div>
 
         {/* Hero Section of the Case Study */}
-        <div className="mt-10 grid gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
+        <div className="mt-10 grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-center lg:gap-12">
+
+          {/* LEFT CONTENT */}
           <motion.div
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, x: -45 }}
+            whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, amount: 0.2 }}
-            transition={{ duration: 0.65, ease: 'easeOut' }}
+            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
           >
-            <div className="flex items-center gap-3 text-cyan-400">
-              <Building2 className="h-6 w-6" />
-              <span className="text-sm font-bold uppercase tracking-[0.2em] text-cyan-300">
+            {/* Client Label */}
+            <motion.div
+              className="flex flex-wrap items-center gap-3 text-cyan-400"
+              initial={{ opacity: 0, y: 15 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+            >
+              <Building2 className="h-5 w-5 sm:h-6 sm:w-6" />
+              <span className="text-xs font-bold uppercase tracking-[0.2em] text-cyan-300 sm:text-sm">
                 Our Client – KK Mart
               </span>
-            </div>
+            </motion.div>
 
-            <h2 className="mt-4 text-3xl font-black tracking-[-0.05em] text-white sm:text-5xl lg:text-6xl leading-[1.05]">
-              Scaling a Retail Giant: <br />
+            {/* Heading */}
+            <motion.h2
+              className="mt-4 font-['Manrope'] text-3xl font-black leading-[1.1] tracking-[-0.05em] text-white sm:text-4xl md:text-5xl lg:text-6xl"
+              initial={{ opacity: 0, y: 25 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.7, delay: 0.1 }}
+            >
+              Scaling a Retail Giant:
+              <br />
               <span className="bg-gradient-to-r from-cyan-300 via-sky-300 to-blue-400 bg-clip-text text-transparent">
                 Multan to Lahore Expansion
               </span>
-            </h2>
+            </motion.h2>
 
-            <p className="mt-6 text-base leading-relaxed text-slate-300 sm:text-lg">
-              <strong className="text-white font-semibold">KK Mart</strong> operates <span className="text-cyan-300 font-semibold">3 thriving supermarket branches in Multan</span> and is now expanding with a flagship branch in <span className="text-cyan-300 font-semibold">Lahore</span>. 
-            </p>
+            {/* Description */}
+            <motion.p
+              className="mt-6 text-sm leading-7 text-slate-300 sm:text-base sm:leading-relaxed lg:text-lg"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.7, delay: 0.2 }}
+            >
+              <strong className="font-semibold text-white">KK Mart</strong> operates{" "}
+              <span className="font-semibold text-cyan-300">
+                3 thriving supermarket branches in Multan
+              </span>{" "}
+              and is now expanding with a flagship branch in{" "}
+              <span className="font-semibold text-cyan-300">Lahore</span>.
+            </motion.p>
 
-            <p className="mt-4 text-base leading-relaxed text-slate-400">
-              <strong className="text-slate-200">GROISH</strong> has been entrusted as the exclusive full-scope growth partner, delivering <span className="text-white font-medium">1 year of complete IT services, comprehensive digital marketing, and advanced SEO</span>, coupled with a high-voltage Lahore launch campaign across billboards, mobile roadshows, and landmark activations.
-            </p>
+            <motion.p
+              className="mt-4 text-sm leading-7 text-slate-400 sm:text-base sm:leading-relaxed"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.7, delay: 0.3 }}
+            >
+              <strong className="text-slate-200">GROISH</strong> has been entrusted as
+              the exclusive full-scope growth partner, delivering{" "}
+              <span className="font-medium text-white">
+                1 year of complete IT services, comprehensive digital marketing, and
+                advanced SEO
+              </span>
+              , coupled with a high-voltage Lahore launch campaign across billboards,
+              mobile roadshows, and landmark activations.
+            </motion.p>
 
-            {/* Action Buttons */}
-            <div className="mt-8 flex flex-wrap items-center gap-4">
+            {/* ACTION BUTTONS */}
+            <motion.div
+              className="mt-8 flex flex-col items-stretch gap-3 sm:flex-row sm:flex-wrap sm:items-center sm:gap-4"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.7, delay: 0.4 }}
+            >
               <Button
                 asChild
                 size="lg"
-                className="group relative inline-flex items-center gap-2.5 rounded-full bg-gradient-to-r from-cyan-400 via-sky-500 to-blue-600 px-7 py-6 text-base font-bold text-slate-950 shadow-[0_12px_30px_rgba(56,189,248,0.3)] transition-all duration-300 hover:shadow-[0_16px_40px_rgba(56,189,248,0.45)] hover:scale-[1.02] active:scale-[0.98]"
+                className="group relative inline-flex w-full items-center justify-center gap-2.5 rounded-full bg-gradient-to-r from-cyan-400 via-sky-500 to-blue-600 px-6 py-6 text-sm font-bold text-slate-950 shadow-[0_12px_30px_rgba(56,189,248,0.3)] transition-all duration-300 hover:scale-[1.02] hover:shadow-[0_16px_40px_rgba(56,189,248,0.45)] active:scale-[0.98] sm:w-auto sm:px-7 sm:text-base"
               >
                 <a href="/clients/kk-mart">
                   <Eye className="h-5 w-5 transition-transform group-hover:scale-110" />
@@ -670,110 +721,219 @@ const KKMartCaseStudy = () => {
                 </a>
               </Button>
 
-              <Button
+              {/* <Button
                 size="lg"
                 variant="outline"
                 onClick={() => setIsModalOpen(true)}
-                className="rounded-full border-slate-700 bg-slate-900/80 px-6 py-6 text-sm font-semibold text-slate-200 backdrop-blur hover:bg-slate-800 hover:text-white hover:border-slate-600"
+                className="w-full rounded-full border-slate-700 bg-slate-900/80 px-6 py-6 text-sm font-semibold text-slate-200 backdrop-blur transition-all duration-300 hover:border-cyan-500/50 hover:bg-slate-800 hover:text-white sm:w-auto"
               >
-                <Sparkles className="h-4 w-4 mr-2 text-cyan-400" />
+                <Sparkles className="mr-2 h-4 w-4 text-cyan-400" />
                 <span>Campaign Blueprint</span>
-              </Button>
+              </Button> */}
 
               <Button
                 asChild
                 variant="ghost"
                 size="sm"
-                className="text-xs font-semibold text-slate-400 hover:text-cyan-300"
+                className="w-full text-xs font-semibold text-slate-400 transition-colors hover:text-cyan-300 sm:w-auto"
               >
                 <a href="#kkmart-gallery">
                   Explore Photos ↓
                 </a>
               </Button>
-            </div>
+            </motion.div>
           </motion.div>
 
-          {/* Quick Metrics Grid */}
-          <motion.div 
-            className="grid grid-cols-2 gap-4"
-            initial={{ opacity: 0, scale: 0.96 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true, amount: 0.2 }}
-            transition={{ duration: 0.7, delay: 0.15 }}
+          {/* RIGHT SIDE - METRICS */}
+          <motion.div
+            className="grid grid-cols-1 gap-3 min-[420px]:grid-cols-2 sm:gap-4"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.15 }}
+            variants={{
+              hidden: {},
+              visible: {
+                transition: {
+                  staggerChildren: 0.14,
+                  delayChildren: 0.15,
+                },
+              },
+            }}
           >
-            <div className="rounded-2xl border border-slate-800/90 bg-slate-900/70 p-5 backdrop-blur shadow-lg hover:border-cyan-500/40 transition-colors">
-              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-cyan-500/10 text-cyan-400">
+            {/* CARD 1 */}
+            <motion.div
+              variants={{
+                hidden: { opacity: 0, y: 35, scale: 0.94 },
+                visible: { opacity: 1, y: 0, scale: 1 },
+              }}
+              transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
+              whileHover={{ y: -6, scale: 1.02 }}
+              className="group rounded-2xl border border-slate-800/90 bg-slate-900/70 p-5 shadow-lg backdrop-blur transition-colors duration-300 hover:border-cyan-500/50 hover:shadow-[0_15px_35px_rgba(34,211,238,0.1)] sm:p-6"
+            >
+              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-cyan-500/10 text-cyan-400 transition-transform duration-300 group-hover:rotate-6 group-hover:scale-110">
                 <MapPin className="h-5 w-5" />
               </div>
               <p className="mt-4 text-2xl font-black text-white sm:text-3xl">3 + 1</p>
-              <p className="text-xs font-bold uppercase tracking-wider text-cyan-300">Branches Scope</p>
-              <p className="mt-1 text-xs text-slate-400 leading-snug">3 in Multan + New Flagship Lahore expansion</p>
-            </div>
+              <p className="text-xs font-bold uppercase tracking-wider text-cyan-300">
+                Branches Scope
+              </p>
+              <p className="mt-2 text-xs leading-relaxed text-slate-400">
+                3 in Multan + New Flagship Lahore expansion
+              </p>
+            </motion.div>
 
-            <div className="rounded-2xl border border-slate-800/90 bg-slate-900/70 p-5 backdrop-blur shadow-lg hover:border-blue-500/40 transition-colors">
-              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-blue-500/10 text-blue-400">
+            {/* CARD 2 */}
+            <motion.div
+              variants={{
+                hidden: { opacity: 0, y: 35, scale: 0.94 },
+                visible: { opacity: 1, y: 0, scale: 1 },
+              }}
+              transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
+              whileHover={{ y: -6, scale: 1.02 }}
+              className="group rounded-2xl border border-slate-800/90 bg-slate-900/70 p-5 shadow-lg backdrop-blur transition-colors duration-300 hover:border-blue-500/50 hover:shadow-[0_15px_35px_rgba(59,130,246,0.1)] sm:p-6"
+            >
+              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-blue-500/10 text-blue-400 transition-transform duration-300 group-hover:rotate-6 group-hover:scale-110">
                 <Tv className="h-5 w-5" />
               </div>
               <p className="mt-4 text-2xl font-black text-white sm:text-3xl">20 Sites</p>
-              <p className="text-xs font-bold uppercase tracking-wider text-blue-300">Lahore Billboards</p>
-              <p className="mt-1 text-xs text-slate-400 leading-snug">Prime arterial billboards across Lahore</p>
-            </div>
+              <p className="text-xs font-bold uppercase tracking-wider text-blue-300">
+                Lahore Billboards
+              </p>
+              <p className="mt-2 text-xs leading-relaxed text-slate-400">
+                Prime arterial billboards across Lahore
+              </p>
+            </motion.div>
 
-            <div className="rounded-2xl border border-slate-800/90 bg-slate-900/70 p-5 backdrop-blur shadow-lg hover:border-emerald-500/40 transition-colors">
-              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-emerald-500/10 text-emerald-400">
+            {/* CARD 3 */}
+            <motion.div
+              variants={{
+                hidden: { opacity: 0, y: 35, scale: 0.94 },
+                visible: { opacity: 1, y: 0, scale: 1 },
+              }}
+              transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
+              whileHover={{ y: -6, scale: 1.02 }}
+              className="group rounded-2xl border border-slate-800/90 bg-slate-900/70 p-5 shadow-lg backdrop-blur transition-colors duration-300 hover:border-emerald-500/50 hover:shadow-[0_15px_35px_rgba(16,185,129,0.1)] sm:p-6"
+            >
+              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-emerald-500/10 text-emerald-400 transition-transform duration-300 group-hover:rotate-6 group-hover:scale-110">
                 <Calendar className="h-5 w-5" />
               </div>
               <p className="mt-4 text-2xl font-black text-white sm:text-3xl">1 Year</p>
-              <p className="text-xs font-bold uppercase tracking-wider text-emerald-300">Complete Retainer</p>
-              <p className="mt-1 text-xs text-slate-400 leading-snug">Full IT, SEO & Digital Marketing mandate</p>
-            </div>
+              <p className="text-xs font-bold uppercase tracking-wider text-emerald-300">
+                Complete Retainer
+              </p>
+              <p className="mt-2 text-xs leading-relaxed text-slate-400">
+                Full IT, SEO & Digital Marketing mandate
+              </p>
+            </motion.div>
 
-            <div className="rounded-2xl border border-slate-800/90 bg-slate-900/70 p-5 backdrop-blur shadow-lg hover:border-pink-500/40 transition-colors">
-              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-pink-500/10 text-pink-400">
+            {/* CARD 4 */}
+            <motion.div
+              variants={{
+                hidden: { opacity: 0, y: 35, scale: 0.94 },
+                visible: { opacity: 1, y: 0, scale: 1 },
+              }}
+              transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
+              whileHover={{ y: -6, scale: 1.02 }}
+              className="group rounded-2xl border border-slate-800/90 bg-slate-900/70 p-5 shadow-lg backdrop-blur transition-colors duration-300 hover:border-pink-500/50 hover:shadow-[0_15px_35px_rgba(236,72,153,0.1)] sm:p-6"
+            >
+              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-pink-500/10 text-pink-400 transition-transform duration-300 group-hover:rotate-6 group-hover:scale-110">
                 <Share2 className="h-5 w-5" />
               </div>
               <p className="mt-4 text-2xl font-black text-white sm:text-3xl">5 Channels</p>
-              <p className="text-xs font-bold uppercase tracking-wider text-pink-300">Social Ecosystem</p>
-              <p className="mt-1 text-xs text-slate-400 leading-snug">FB, IG, TikTok, YouTube & LinkedIn</p>
-            </div>
+              <p className="text-xs font-bold uppercase tracking-wider text-pink-300">
+                Social Ecosystem
+              </p>
+              <p className="mt-2 text-xs leading-relaxed text-slate-400">
+                FB, IG, TikTok, YouTube & LinkedIn
+              </p>
+            </motion.div>
           </motion.div>
         </div>
 
         {/* Deliverables & Services Grid */}
-        <div className="mt-20">
-          <div className="max-w-2xl">
-            <p className="text-xs font-bold uppercase tracking-[0.24em] text-cyan-300">
+        <div className="mt-20 sm:mt-24">
+          {/* Section Heading */}
+          <motion.div
+            initial={{ opacity: 0, y: 25 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.7 }}
+            className="mx-auto max-w-3xl text-center sm:text-left"
+          >
+            <p className="inline-flex items-center gap-2 mt-10 rounded-full border border-cyan-400/30 bg-cyan-400/10 px-4 py-2 text-[10px] font-extrabold uppercase tracking-[0.2em] text-cyan-300 shadow-[0_0_20px_rgba(34,211,238,0.12)] sm:text-xs">
+              <span className="relative flex h-2 w-2">
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-cyan-400 opacity-75" />
+                <span className="relative inline-flex h-2 w-2 rounded-full bg-cyan-400" />
+              </span>
               Partnership Blueprint
             </p>
-            <h3 className="mt-2 text-2xl font-black text-white sm:text-4xl">
-              End-to-End Execution by GROISH
-            </h3>
-            <p className="mt-3 text-sm text-slate-400 sm:text-base">
-              A dual-engine strategy integrating high-impact physical OOH ground dominance with always-on digital & technological infrastructure.
-            </p>
-          </div>
 
-          <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            <h3 className="mt-5 text-2xl font-extrabold leading-tight tracking-tight text-white sm:text-4xl lg:text-5xl">
+              End-to-End Execution by{" "}
+              <span className="bg-gradient-to-r from-cyan-300 via-blue-400 to-cyan-300 bg-clip-text text-transparent">
+                GROISH
+              </span>
+            </h3>
+
+            <p className="mx-auto mt-4 max-w-2xl text-sm leading-7 text-slate-400 sm:mx-0 sm:text-base">
+              A dual-engine strategy integrating high-impact physical OOH ground
+              dominance with always-on digital & technological infrastructure.
+            </p>
+          </motion.div>
+
+          {/* Animated Cards */}
+          <div className="mt-10 grid grid-cols-1 gap-5 sm:grid-cols-2 sm:gap-6 lg:grid-cols-3">
             {scopeItems.map((item, idx) => {
               const Icon = item.icon;
+
               return (
                 <motion.div
                   key={item.title}
-                  initial={{ opacity: 0, y: 18 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, amount: 0.15 }}
-                  transition={{ duration: 0.5, delay: idx * 0.08 }}
-                  className="group relative rounded-2xl border border-slate-800 bg-slate-900/60 p-6 backdrop-blur transition-all duration-300 hover:-translate-y-1 hover:border-cyan-500/50 hover:bg-slate-900 hover:shadow-[0_15px_35px_rgba(0,0,0,0.35)]"
+                  initial={{ opacity: 0, y: 70, scale: 0.92 }}
+                  whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                  viewport={{
+                    once: false,
+                    amount: 0.25,
+                  }}
+                  transition={{
+                    duration: 0.8,
+                    delay: idx * 0.12,
+                    ease: [0.22, 1, 0.36, 1],
+                  }}
+                  whileHover={{
+                    y: -8,
+                    scale: 1.02,
+                    transition: { duration: 0.3 },
+                  }}
+                  className="group relative isolate overflow-hidden rounded-2xl border border-slate-800/80 bg-slate-900/60 p-5 shadow-lg shadow-black/10 backdrop-blur-xl transition-all duration-500 hover:border-cyan-400/50 hover:shadow-[0_20px_50px_rgba(6,182,212,0.12)] sm:p-6"
                 >
-                  <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-cyan-500/20 to-blue-500/10 text-cyan-300 group-hover:scale-110 transition-transform">
-                    <Icon className="h-6 w-6" />
-                  </div>
-                  <h4 className="mt-5 text-lg font-bold text-white group-hover:text-cyan-300 transition-colors">
+                  {/* Animated Background Glow */}
+                  <div className="pointer-events-none absolute -right-16 -top-16 h-40 w-40 rounded-full bg-cyan-500/10 blur-3xl transition-all duration-700 group-hover:bg-cyan-400/25 group-hover:scale-150" />
+
+                  <div className="pointer-events-none absolute inset-x-0 top-0 h-px origin-left scale-x-0 bg-gradient-to-r from-transparent via-cyan-400 to-transparent transition-transform duration-700 group-hover:scale-x-100" />
+
+                  {/* Icon */}
+                  <motion.div
+                    whileHover={{ rotate: 8, scale: 1.12 }}
+                    transition={{ type: "spring", stiffness: 300, damping: 12 }}
+                    className="relative flex h-12 w-12 items-center justify-center rounded-xl border border-cyan-400/20 bg-gradient-to-br from-cyan-500/20 to-blue-500/10 text-cyan-300 shadow-[0_0_20px_rgba(34,211,238,0.08)] sm:h-14 sm:w-14"
+                  >
+                    <Icon className="h-6 w-6 sm:h-7 sm:w-7" />
+                  </motion.div>
+
+                  {/* Content */}
+                  <h4 className="relative mt-5 text-base font-extrabold leading-snug text-white transition-colors duration-300 group-hover:text-cyan-300 sm:text-lg">
                     {item.title}
                   </h4>
-                  <p className="mt-2.5 text-sm leading-relaxed text-slate-400">
+
+                  <p className="relative mt-3 text-sm leading-7 text-slate-400 transition-colors duration-300 group-hover:text-slate-300">
                     {item.desc}
                   </p>
+
+                  {/* Bottom Accent */}
+                  <div className="relative mt-6 h-[2px] w-10 overflow-hidden rounded-full bg-slate-700 transition-all duration-500 group-hover:w-20 group-hover:bg-cyan-400">
+                    <div className="h-full w-full -translate-x-full bg-gradient-to-r from-cyan-300 to-blue-400 transition-transform duration-700 group-hover:translate-x-0" />
+                  </div>
                 </motion.div>
               );
             })}
@@ -781,120 +941,382 @@ const KKMartCaseStudy = () => {
         </div>
 
         {/* Lahore Launch Campaign Deep-Dive: Billboards, Road Show & Liberty Roundabout */}
-        <div className="mt-24 rounded-3xl border border-slate-800 bg-gradient-to-b from-slate-900/90 to-slate-950 p-6 sm:p-10 lg:p-12 relative overflow-hidden shadow-2xl">
-          <div className="absolute right-0 top-0 h-96 w-96 rounded-full bg-blue-500/10 blur-3xl pointer-events-none" />
-          
-          <div className="relative z-10 max-w-3xl">
-            <span className="inline-block rounded-full bg-blue-500/10 border border-blue-400/20 px-3.5 py-1 text-xs font-bold uppercase tracking-wider text-blue-300">
-              Grand Launch Execution
-            </span>
-            <h3 className="mt-3 text-2xl font-black text-white sm:text-4xl">
-              The Lahore Launch Blitz: 3 Core Pillars
-            </h3>
-            <p className="mt-3 text-sm sm:text-base text-slate-400">
-              How GROISH is capturing maximum share of voice and footfall across Lahore for KK Mart’s grand retail opening.
-            </p>
-          </div>
+        
+<motion.div
+  initial={{ opacity: 0, y: 50, scale: 0.97 }}
+  whileInView={{ opacity: 1, y: 0, scale: 1 }}
+  viewport={{ once: false, amount: 0.15 }}
+  transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+  className="relative mt-16 sm:mt-20 lg:mt-24 overflow-hidden rounded-3xl border border-slate-800 bg-gradient-to-b from-slate-900/95 to-slate-950 p-5 shadow-2xl sm:p-8 lg:p-12"
+>
+  {/* Animated Background Glows */}
+  <motion.div
+    animate={{
+      scale: [1, 1.35, 1],
+      opacity: [0.12, 0.3, 0.12],
+      x: [0, -35, 0],
+      y: [0, 25, 0],
+    }}
+    transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+    className="pointer-events-none absolute -right-20 -top-20 h-72 w-72 rounded-full bg-blue-500 blur-3xl sm:h-96 sm:w-96"
+  />
 
-          <div className="relative z-10 mt-10 grid gap-6 md:grid-cols-3">
-            {/* Pillar 1: 20 Billboards */}
-            <div className="rounded-2xl border border-slate-800/80 bg-slate-950/70 p-6 transition-all duration-300 hover:border-slate-700">
-              <div className="flex items-center gap-3 text-cyan-400">
-                <Tv className="h-5 w-5" />
-                <span className="text-xs font-bold uppercase tracking-widest text-cyan-300">Pillar 01</span>
-              </div>
-              <h4 className="mt-3 text-xl font-bold text-white">20 Billboard City Takeover</h4>
-              <p className="mt-2 text-sm text-slate-400 leading-relaxed">
-                Strategic static and illuminated hoardings positioned across key junctions including Gulberg, DHA, Ring Road interchanges, Mall Road, and Jail Road.
-              </p>
-              <ul className="mt-4 space-y-2 text-xs text-slate-300">
-                <li className="flex items-center gap-2"><CheckCircle2 className="h-3.5 w-3.5 text-cyan-400 shrink-0" /> 20 strategic high-impact locations</li>
-                <li className="flex items-center gap-2"><CheckCircle2 className="h-3.5 w-3.5 text-cyan-400 shrink-0" /> High-frequency commuter visibility</li>
-              </ul>
-            </div>
+  <motion.div
+    animate={{
+      scale: [1, 1.4, 1],
+      opacity: [0.06, 0.18, 0.06],
+    }}
+    transition={{ duration: 9, repeat: Infinity, ease: "easeInOut" }}
+    className="pointer-events-none absolute -bottom-32 -left-20 h-72 w-72 rounded-full bg-cyan-500 blur-3xl"
+  />
 
-            {/* Pillar 2: Road Show */}
-            <div className="rounded-2xl border border-slate-800/80 bg-slate-950/70 p-6 transition-all duration-300 hover:border-slate-700">
-              <div className="flex items-center gap-3 text-sky-400">
-                <Truck className="h-5 w-5" />
-                <span className="text-xs font-bold uppercase tracking-widest text-sky-300">Pillar 02</span>
-              </div>
-              <h4 className="mt-3 text-xl font-bold text-white">Branded Flex Trucks Roadshow</h4>
-              <p className="mt-2 text-sm text-slate-400 leading-relaxed">
-                Mobile promotional flex trucks fitted with vibrant full-body wraps, synchronized sound systems, and flyer distribution squads targeting major residential colonies.
-              </p>
-              <ul className="mt-4 space-y-2 text-xs text-slate-300">
-                <li className="flex items-center gap-2"><CheckCircle2 className="h-3.5 w-3.5 text-sky-400 shrink-0" /> Mobile hyper-local route coverage</li>
-                <li className="flex items-center gap-2"><CheckCircle2 className="h-3.5 w-3.5 text-sky-400 shrink-0" /> On-the-ground customer engagement</li>
-              </ul>
-            </div>
+  {/* Animated Top Border */}
+  <motion.div
+    animate={{ x: ["-100%", "100%"] }}
+    transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
+    className="pointer-events-none absolute left-0 top-0 h-[2px] w-1/2 bg-gradient-to-r from-transparent via-cyan-400 to-transparent"
+  />
 
-            {/* Pillar 3: Liberty Roundabout */}
-            <div className="rounded-2xl border border-slate-800/80 bg-slate-950/70 p-6 transition-all duration-300 hover:border-slate-700">
-              <div className="flex items-center gap-3 text-blue-400">
-                <Sparkles className="h-5 w-5" />
-                <span className="text-xs font-bold uppercase tracking-widest text-blue-300">Pillar 03</span>
-              </div>
-              <h4 className="mt-3 text-xl font-bold text-white">Liberty Roundabout Grand Hub</h4>
-              <p className="mt-2 text-sm text-slate-400 leading-relaxed">
-                Centralized showcase at Liberty Roundabout (Gulberg), Lahore’s premier commercial shopping epicentre, driving high-income shoppers directly to the new store.
-              </p>
-              <ul className="mt-4 space-y-2 text-xs text-slate-300">
-                <li className="flex items-center gap-2"><CheckCircle2 className="h-3.5 w-3.5 text-blue-400 shrink-0" /> Landmark commercial hotspot</li>
-                <li className="flex items-center gap-2"><CheckCircle2 className="h-3.5 w-3.5 text-blue-400 shrink-0" /> Prestigious retail brand association</li>
-              </ul>
-            </div>
-          </div>
-        </div>
+  {/* Heading */}
+  <div className="relative z-10 max-w-3xl">
+    <motion.span
+      initial={{ opacity: 0, y: 15 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: false }}
+      transition={{ duration: 0.6 }}
+      className="inline-flex items-center gap-2 rounded-full border border-blue-400/30 bg-blue-500/10 px-3.5 py-2 text-[10px] font-extrabold uppercase tracking-[0.18em] text-blue-300 shadow-[0_0_20px_rgba(59,130,246,0.12)] sm:text-xs"
+    >
+      <span className="relative flex h-2 w-2">
+        <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-blue-400 opacity-75" />
+        <span className="relative h-2 w-2 rounded-full bg-blue-400" />
+      </span>
+      Grand Launch Execution
+    </motion.span>
+
+    <motion.h3
+      initial={{ opacity: 0, y: 25 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: false }}
+      transition={{ duration: 0.7, delay: 0.1 }}
+      className="mt-5 text-2xl font-extrabold leading-tight tracking-tight text-white sm:text-4xl lg:text-4xl"
+    >
+      The Lahore Launch Blitz:{" "}
+      <span className="bg-gradient-to-r from-cyan-300 via-blue-400 to-cyan-300 bg-clip-text text-transparent">
+        3 Core Pillars
+      </span>
+    </motion.h3>
+
+    <motion.p
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: false }}
+      transition={{ duration: 0.7, delay: 0.2 }}
+      className="mt-4 max-w-2xl text-sm leading-7 text-slate-400 sm:text-base"
+    >
+      How GROISH is capturing maximum share of voice and footfall across
+      Lahore for KK Mart’s grand retail opening.
+    </motion.p>
+  </div>
+
+  {/* Three Animated Pillar Cards */}
+  <div className="relative z-10 mt-10 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 lg:gap-6">
+
+    {/* Pillar 1 */}
+    <motion.div
+      initial={{ opacity: 0, y: 90, rotateX: 12, scale: 0.9 }}
+      whileInView={{ opacity: 1, y: 0, rotateX: 0, scale: 1 }}
+      viewport={{ once: false, amount: 0.2 }}
+      transition={{ duration: 0.85, delay: 0.05, ease: [0.22, 1, 0.36, 1] }}
+      whileHover={{ y: -10, scale: 1.025 }}
+      className="group relative isolate overflow-hidden rounded-2xl border border-slate-800 bg-slate-950/75 p-5 shadow-xl backdrop-blur-xl transition-all duration-500 hover:border-cyan-400/60 hover:shadow-[0_20px_45px_rgba(34,211,238,0.15)] sm:p-6"
+    >
+      <div className="pointer-events-none absolute -right-16 -top-16 h-40 w-40 rounded-full bg-cyan-500/10 blur-3xl transition-all duration-700 group-hover:scale-150 group-hover:bg-cyan-400/25" />
+
+      <div className="relative flex items-center gap-3 text-cyan-400">
+        <motion.div
+          whileHover={{ rotate: 12, scale: 1.2 }}
+          className="flex h-11 w-11 items-center justify-center rounded-xl border border-cyan-400/20 bg-cyan-400/10"
+        >
+          <Tv className="h-5 w-5" />
+        </motion.div>
+        <span className="text-xs font-extrabold uppercase tracking-[0.18em] text-cyan-300">
+          Pillar 01
+        </span>
+      </div>
+
+      <h4 className="relative mt-5 text-lg font-extrabold leading-snug text-white transition-colors duration-300 group-hover:text-cyan-300 sm:text-xl">
+        20 Billboard City Takeover
+      </h4>
+
+      <p className="relative mt-3 text-sm leading-7 text-slate-400 group-hover:text-slate-300">
+        Strategic static and illuminated hoardings positioned across key
+        junctions including Gulberg, DHA, Ring Road interchanges, Mall Road,
+        and Jail Road.
+      </p>
+
+      <ul className="relative mt-5 space-y-3 text-xs leading-relaxed text-slate-300">
+        <li className="flex items-start gap-2.5">
+          <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-cyan-400" />
+          20 strategic high-impact locations
+        </li>
+        <li className="flex items-start gap-2.5">
+          <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-cyan-400" />
+          High-frequency commuter visibility
+        </li>
+      </ul>
+
+      <div className="mt-6 h-[2px] w-10 rounded-full bg-cyan-400 transition-all duration-500 group-hover:w-full" />
+    </motion.div>
+
+    {/* Pillar 2 */}
+    <motion.div
+      initial={{ opacity: 0, y: 90, rotateX: 12, scale: 0.9 }}
+      whileInView={{ opacity: 1, y: 0, rotateX: 0, scale: 1 }}
+      viewport={{ once: false, amount: 0.2 }}
+      transition={{ duration: 0.85, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
+      whileHover={{ y: -10, scale: 1.025 }}
+      className="group relative isolate overflow-hidden rounded-2xl border border-slate-800 bg-slate-950/75 p-5 shadow-xl backdrop-blur-xl transition-all duration-500 hover:border-sky-400/60 hover:shadow-[0_20px_45px_rgba(56,189,248,0.15)] sm:p-6"
+    >
+      <div className="pointer-events-none absolute -right-16 -top-16 h-40 w-40 rounded-full bg-sky-500/10 blur-3xl transition-all duration-700 group-hover:scale-150 group-hover:bg-sky-400/25" />
+
+      <div className="relative flex items-center gap-3 text-sky-400">
+        <motion.div
+          whileHover={{ rotate: -12, scale: 1.2 }}
+          className="flex h-11 w-11 items-center justify-center rounded-xl border border-sky-400/20 bg-sky-400/10"
+        >
+          <Truck className="h-5 w-5" />
+        </motion.div>
+        <span className="text-xs font-extrabold uppercase tracking-[0.18em] text-sky-300">
+          Pillar 02
+        </span>
+      </div>
+
+      <h4 className="relative mt-5 text-lg font-extrabold leading-snug text-white transition-colors duration-300 group-hover:text-sky-300 sm:text-xl">
+        Branded Flex Trucks Roadshow
+      </h4>
+
+      <p className="relative mt-3 text-sm leading-7 text-slate-400 group-hover:text-slate-300">
+        Mobile promotional flex trucks fitted with vibrant full-body wraps,
+        synchronized sound systems, and flyer distribution squads targeting
+        major residential colonies.
+      </p>
+
+      <ul className="relative mt-5 space-y-3 text-xs leading-relaxed text-slate-300">
+        <li className="flex items-start gap-2.5">
+          <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-sky-400" />
+          Mobile hyper-local route coverage
+        </li>
+        <li className="flex items-start gap-2.5">
+          <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-sky-400" />
+          On-the-ground customer engagement
+        </li>
+      </ul>
+
+      <div className="mt-6 h-[2px] w-10 rounded-full bg-sky-400 transition-all duration-500 group-hover:w-full" />
+    </motion.div>
+
+    {/* Pillar 3 */}
+    <motion.div
+      initial={{ opacity: 0, y: 90, rotateX: 12, scale: 0.9 }}
+      whileInView={{ opacity: 1, y: 0, rotateX: 0, scale: 1 }}
+      viewport={{ once: false, amount: 0.2 }}
+      transition={{ duration: 0.85, delay: 0.35, ease: [0.22, 1, 0.36, 1] }}
+      whileHover={{ y: -10, scale: 1.025 }}
+      className="group relative isolate overflow-hidden rounded-2xl border border-slate-800 bg-slate-950/75 p-5 shadow-xl backdrop-blur-xl transition-all duration-500 hover:border-blue-400/60 hover:shadow-[0_20px_45px_rgba(59,130,246,0.15)] sm:p-6"
+    >
+      <div className="pointer-events-none absolute -right-16 -top-16 h-40 w-40 rounded-full bg-blue-500/10 blur-3xl transition-all duration-700 group-hover:scale-150 group-hover:bg-blue-400/25" />
+
+      <div className="relative flex items-center gap-3 text-blue-400">
+        <motion.div
+          whileHover={{ rotate: 180, scale: 1.2 }}
+          transition={{ duration: 0.5 }}
+          className="flex h-11 w-11 items-center justify-center rounded-xl border border-blue-400/20 bg-blue-400/10"
+        >
+          <Sparkles className="h-5 w-5" />
+        </motion.div>
+        <span className="text-xs font-extrabold uppercase tracking-[0.18em] text-blue-300">
+          Pillar 03
+        </span>
+      </div>
+
+      <h4 className="relative mt-5 text-lg font-extrabold leading-snug text-white transition-colors duration-300 group-hover:text-blue-300 sm:text-xl">
+        Liberty Roundabout Grand Hub
+      </h4>
+
+      <p className="relative mt-3 text-sm leading-7 text-slate-400 group-hover:text-slate-300">
+        Centralized showcase at Liberty Roundabout (Gulberg), Lahore’s premier
+        commercial shopping epicentre, driving high-income shoppers directly
+        to the new store.
+      </p>
+
+      <ul className="relative mt-5 space-y-3 text-xs leading-relaxed text-slate-300">
+        <li className="flex items-start gap-2.5">
+          <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-blue-400" />
+          Landmark commercial hotspot
+        </li>
+        <li className="flex items-start gap-2.5">
+          <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-blue-400" />
+          Prestigious retail brand association
+        </li>
+      </ul>
+
+      <div className="mt-6 h-[2px] w-10 rounded-full bg-blue-400 transition-all duration-500 group-hover:w-full" />
+    </motion.div>
+  </div>
+</motion.div>
+
 
         {/* Social Media Omnichannel Ecosystem */}
-        <div className="mt-24">
-          <div className="mx-auto max-w-2xl text-center">
-            <p className="text-xs font-bold uppercase tracking-[0.24em] text-cyan-300">
-              Omnichannel Strategy
-            </p>
-            <h3 className="mt-2 text-2xl font-black text-white sm:text-4xl">
-              1-Year Digital & Social Domination
-            </h3>
-            <p className="mt-3 text-sm text-slate-400 sm:text-base">
-              Groish manages the unified voice, creative design, video production, and performance ads across all 5 major platforms.
-            </p>
+      
+<div className="relative mt-20 overflow-hidden py-6 sm:mt-24 sm:py-10">
+
+  {/* Background Decoration */}
+  <motion.div
+    animate={{ rotate: 360 }}
+    transition={{ duration: 35, repeat: Infinity, ease: "linear" }}
+    className="pointer-events-none absolute -right-32 top-10 h-72 w-72 rounded-full border border-cyan-400/10"
+  />
+  <motion.div
+    animate={{ rotate: -360 }}
+    transition={{ duration: 45, repeat: Infinity, ease: "linear" }}
+    className="pointer-events-none absolute -left-32 bottom-0 h-80 w-80 rounded-full border border-blue-400/10"
+  />
+
+  {/* Heading */}
+  <motion.div
+    initial={{ opacity: 0, y: 35 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: false, amount: 0.3 }}
+    transition={{ duration: 0.8 }}
+    className="relative z-10 mx-auto max-w-3xl text-center"
+  >
+    <span className="inline-flex items-center gap-2 rounded-full border border-cyan-400/30 bg-cyan-400/10 px-4 py-2 text-[10px] font-extrabold uppercase tracking-[0.2em] text-cyan-300 shadow-[0_0_25px_rgba(34,211,238,0.12)] sm:text-xs">
+      <motion.span
+        animate={{ scale: [1, 1.5, 1], opacity: [1, 0.5, 1] }}
+        transition={{ duration: 1.8, repeat: Infinity }}
+        className="h-2 w-2 rounded-full bg-cyan-400"
+      />
+      Omnichannel Strategy
+    </span>
+
+    <h3 className="mt-5 text-2xl font-extrabold leading-tight tracking-tight text-white sm:text-4xl lg:text-5xl">
+      1-Year Digital & Social{" "}
+      <span className="bg-gradient-to-r from-cyan-300 via-blue-400 to-purple-400 bg-clip-text text-transparent">
+        Domination
+      </span>
+    </h3>
+
+    <p className="mx-auto mt-4 max-w-2xl text-sm leading-7 text-slate-400 sm:text-base">
+      Groish manages the unified voice, creative design, video production,
+      and performance ads across all 5 major platforms.
+    </p>
+
+    {/* Platform Count */}
+    <div className="mt-6 inline-flex items-center gap-2 text-xs font-semibold text-slate-400">
+      <span className="h-px w-8 bg-gradient-to-r from-transparent to-cyan-400" />
+      <span className="text-cyan-300">05</span> Platforms. One Unified Strategy.
+      <span className="h-px w-8 bg-gradient-to-l from-transparent to-cyan-400" />
+    </div>
+  </motion.div>
+
+  {/* Social Platform Cards */}
+  <div className="relative z-10 mt-12 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
+
+    {socialPlatforms.map((platform, idx) => (
+      <motion.div
+        key={platform.name}
+        initial={{
+          opacity: 0,
+          y: idx % 2 === 0 ? 65 : -65,
+          rotate: idx % 2 === 0 ? -4 : 4,
+          scale: 0.88,
+        }}
+        whileInView={{
+          opacity: 1,
+          y: 0,
+          rotate: 0,
+          scale: 1,
+        }}
+        viewport={{ once: false, amount: 0.2 }}
+        transition={{
+          duration: 0.8,
+          delay: idx * 0.12,
+          ease: [0.22, 1, 0.36, 1],
+        }}
+        whileHover={{
+          y: -12,
+          scale: 1.035,
+          rotate: 0,
+          transition: { duration: 0.3 },
+        }}
+        className="group relative isolate flex min-h-[245px] flex-col justify-between overflow-hidden rounded-2xl border border-slate-800 bg-slate-900/70 p-5 shadow-xl shadow-black/10 backdrop-blur-xl transition-all duration-500 hover:border-cyan-400/50 hover:shadow-[0_20px_45px_rgba(34,211,238,0.13)] sm:min-h-[265px]"
+      >
+        {/* Animated Glow */}
+        <div className="pointer-events-none absolute -right-16 -top-16 h-40 w-40 rounded-full bg-cyan-500/10 blur-3xl transition-all duration-700 group-hover:scale-[1.8] group-hover:bg-blue-400/20" />
+
+        {/* Top Animated Line */}
+        <motion.div
+          initial={{ scaleX: 0 }}
+          whileInView={{ scaleX: 1 }}
+          viewport={{ once: false }}
+          transition={{ duration: 0.8, delay: idx * 0.12 + 0.2 }}
+          className="absolute left-0 top-0 h-[2px] w-full origin-left bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-500"
+        />
+
+        <div className="relative">
+          {/* Icon and Badge */}
+          <div className="flex items-center justify-between gap-2">
+            <motion.div
+              animate={{ y: [0, -5, 0] }}
+              transition={{
+                duration: 3 + idx * 0.3,
+                repeat: Infinity,
+                ease: "easeInOut",
+                delay: idx * 0.2,
+              }}
+              className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br ${platform.color} text-white shadow-lg transition-all duration-500 group-hover:rotate-6 group-hover:scale-110`}
+            >
+              {platform.icon}
+            </motion.div>
+
+            <span className="rounded-full border border-slate-700/80 bg-slate-800/80 px-2.5 py-1 text-[9px] font-extrabold uppercase tracking-wider text-slate-300 sm:text-[10px]">
+              {platform.badge}
+            </span>
           </div>
 
-          <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
-            {socialPlatforms.map((platform, idx) => (
-              <motion.div
-                key={platform.name}
-                initial={{ opacity: 0, y: 15 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.2 }}
-                transition={{ duration: 0.45, delay: idx * 0.07 }}
-                className="group relative flex flex-col justify-between rounded-2xl border border-slate-800 bg-slate-900/50 p-5 backdrop-blur transition-all duration-300 hover:border-slate-700 hover:bg-slate-900"
-              >
-                <div>
-                  <div className="flex items-center justify-between">
-                    <div className={`flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br ${platform.color} text-white shadow-md`}>
-                      {platform.icon}
-                    </div>
-                    <span className="rounded-full bg-slate-800 px-2.5 py-0.5 text-[0.65rem] font-bold text-slate-300">
-                      {platform.badge}
-                    </span>
-                  </div>
-                  <h4 className="mt-4 text-lg font-bold text-white group-hover:text-cyan-300 transition-colors">
-                    {platform.name}
-                  </h4>
-                  <p className="mt-1.5 text-xs text-slate-400 leading-relaxed">
-                    {platform.role}
-                  </p>
-                </div>
-                <div className="mt-4 pt-3 border-t border-slate-800/80 flex items-center gap-1.5 text-[0.7rem] font-semibold text-cyan-400">
-                  <span>Groish Managed</span>
-                  <CheckCircle2 className="h-3 w-3" />
-                </div>
-              </motion.div>
-            ))}
-          </div>
+          {/* Platform Name */}
+          <h4 className="mt-6 text-xl font-extrabold text-white transition-all duration-300 group-hover:translate-x-1 group-hover:text-cyan-300">
+            {platform.name}
+          </h4>
+
+          <p className="mt-2 text-xs leading-6 text-slate-400 transition-colors duration-300 group-hover:text-slate-300">
+            {platform.role}
+          </p>
         </div>
+
+        {/* Managed Link */}
+        <div className="relative mt-6 flex items-center justify-between border-t border-slate-800/80 pt-4">
+          <a
+            href={platform.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={`Visit Groish on ${platform.name}`}
+            className="inline-flex items-center gap-2 text-xs font-bold text-cyan-400 transition-all duration-300 hover:gap-3 hover:text-white"
+          >
+            <CheckCircle2 className="h-4 w-4 shrink-0" />
+            <span>Groish Managed</span>
+            <ArrowUpRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1" />
+          </a>
+
+          <span className="text-[9px] font-bold tracking-widest text-slate-600">
+            0{idx + 1} / 05
+          </span>
+        </div>
+      </motion.div>
+    ))}
+  </div>
+</div>
+
 
         {/* Responsive Image & Video Gallery Section */}
         <div id="kkmart-gallery" className="mt-24 scroll-mt-28">
@@ -923,16 +1345,14 @@ const KKMartCaseStudy = () => {
                 <button
                   key={tab.id}
                   onClick={() => setActiveTab(tab.id)}
-                  className={`rounded-full px-4 py-1.5 text-xs font-bold transition-all duration-200 flex items-center gap-1.5 ${
-                    activeTab === tab.id
-                      ? 'bg-cyan-400 text-slate-950 shadow-md shadow-cyan-400/20 scale-105'
-                      : 'bg-slate-900 text-slate-400 hover:bg-slate-800 hover:text-white border border-slate-800'
-                  }`}
+                  className={`rounded-full px-4 py-1.5 text-xs font-bold transition-all duration-200 flex items-center gap-1.5 ${activeTab === tab.id
+                    ? 'bg-cyan-400 text-slate-950 shadow-md shadow-cyan-400/20 scale-105'
+                    : 'bg-slate-900 text-slate-400 hover:bg-slate-800 hover:text-white border border-slate-800'
+                    }`}
                 >
                   <span>{tab.label}</span>
-                  <span className={`text-[0.65rem] px-1.5 py-0.2 rounded-full font-bold ${
-                    activeTab === tab.id ? 'bg-slate-950/30 text-slate-950' : 'bg-slate-800 text-slate-400'
-                  }`}>
+                  <span className={`text-[0.65rem] px-1.5 py-0.2 rounded-full font-bold ${activeTab === tab.id ? 'bg-slate-950/30 text-slate-950' : 'bg-slate-800 text-slate-400'
+                    }`}>
                     {tab.count}
                   </span>
                 </button>
@@ -965,7 +1385,7 @@ const KKMartCaseStudy = () => {
                       className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-108"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent opacity-80 group-hover:opacity-90 transition-opacity" />
-                    
+
                     {/* Top Tag & Media Type Badge */}
                     <div className="absolute top-3 left-3 flex items-center gap-1.5">
                       <span className="rounded-full bg-slate-900/80 px-2.5 py-1 text-[0.65rem] font-bold uppercase tracking-wider text-cyan-300 backdrop-blur border border-white/10">
@@ -1015,7 +1435,7 @@ const KKMartCaseStudy = () => {
         {/* Bottom Banner CTA */}
         <div className="mt-20 rounded-3xl border border-cyan-500/30 bg-gradient-to-r from-slate-900 via-slate-900 to-blue-950/80 p-8 sm:p-12 shadow-2xl relative overflow-hidden">
           <div className="absolute -right-10 -bottom-10 h-64 w-64 rounded-full bg-cyan-500/10 blur-3xl pointer-events-none" />
-          
+
           <div className="relative z-10 flex flex-col items-center justify-between gap-8 md:flex-row text-center md:text-left">
             <div className="max-w-2xl">
               <span className="text-xs font-bold uppercase tracking-[0.24em] text-cyan-300">
@@ -1249,7 +1669,7 @@ const KKMartCaseStudy = () => {
                 </h4>
                 <div className="mt-3 grid grid-cols-2 sm:grid-cols-4 gap-3">
                   {kkmartGalleryData.map((item, i) => (
-                    <div 
+                    <div
                       key={item.id}
                       onClick={() => {
                         setIsModalOpen(false);

@@ -30,14 +30,32 @@ const GroishEcommerce = () => {
 						whileInView={{ opacity: 1, x: 0 }}
 						viewport={{ once: true, amount: 0.25 }}
 						transition={{ duration: 0.7, ease: 'easeOut' }}
-					>
-						<div className="mb-6 inline-flex items-center gap-2 rounded-full border border-blue-200 bg-white px-3 py-1.5 text-xs font-bold uppercase tracking-[0.2em] text-blue-700 shadow-sm">
-							<span className="h-2 w-2 rounded-full bg-emerald-500" /> Groish E-Commerce
+					><div className="relative mb-6 inline-flex items-center gap-3 rounded-full bg-gradient-to-r from-slate-950 via-blue-950 to-slate-900 px-6 py-3 shadow-[0_8px_25px_rgba(37,99,235,0.2)]">
+							<span className="relative flex h-2 w-2">
+								<span className="absolute inset-0 animate-ping rounded-full bg-blue-400 opacity-70" />
+								<span className="relative h-2 w-2 rounded-full bg-blue-400 shadow-[0_0_10px_#60a5fa]" />
+							</span>
+
+							<p className="mb-0 font-['Manrope'] text-xs font-bold uppercase tracking-[0.15em] text-blue-100">
+								Groish E-Commerce
+							</p>
+
+							<span className="text-xs text-blue-400">✦</span>
 						</div>
-						<h2 className="max-w-xl text-4xl font-bold tracking-tight text-slate-950 sm:text-5xl lg:text-6xl">
-							Build your Amazon business with a sharper edge.
-						</h2>
-						<p className="mt-6 max-w-lg text-lg leading-8 text-slate-600">
+						<motion.div
+							initial={{ opacity: 0, y: 28 }}
+							animate={{ opacity: 1, y: 0 }}
+							transition={{ delay: 0.22, duration: 0.8, ease: "easeOut" }}
+							className="w-full text-left"
+						>
+							<h2 className="max-w-xl text-2xl font-['Manrope'] font-bold tracking-tight text-slate-950 sm:text-5xl lg:text-5xl">
+								Build your Amazon business with a{" "}
+								<span className="bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-transparent">
+									sharper edge.
+								</span>
+							</h2>
+						</motion.div>
+						<p className="mt-6 max-w-lg text-lg leading-6 text-slate-600">
 							GROISH is an Amazon-focused business helping ambitious sellers launch, grow, and operate with practical support at every stage.
 						</p>
 
